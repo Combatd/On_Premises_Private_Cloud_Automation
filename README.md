@@ -201,3 +201,56 @@ To modify a custom role:
 3. Select Update Role from the Actions pull-down list.
 4. Update the field values as desired.
 5. Click Save.
+
+## 16. Categories
+Categories are used to define groups of entities in which policies and enforcement are applied. They typically apply, but are not limited to: environment, application type, application tier, etc.
+
+These categories can then be used by policies to determine what rules/actions to apply.
+
+For example, you might have a Department category that includes values such as engineering, finance, and HR. In this case, you could create one backup policy that applies to engineering and HR and a separate backup policy that applies to finance. Categories allow you to implement various policies across entity groups, and Prism Central allows you to quickly view any established relationships.
+
+### Creating a Category
+To create a category:
+
+1. Go to the categories dashboard.
+2. Click the Create Category button.
+3. Enter a name, and describe the category purpose.
+4. Enter a category value in the Value field.
+
+You can add a second and subsequent value for a category. To do that, click the plus sign (+). Enter the next value. Repeat this step for all the values you want to include in the category and click Save.
+
+For example, if the category name is Departments, values might include Engineering, HR, Sales, Marketing, and so on.
+
+
+### Modifying a Category
+Built-in categories cannot be modified or deleted. To update an existing custom category:
+
+1. Go to the Categories dashboard.
+2. Select the desired category from the list.
+3. Select Update from the Actions pull-down menu.
+4. Update the field values as desired.
+5. Click Save.
+
+
+### Deleting a Category
+1. Go to the Categories dashboard.
+2. Select the desired category from the list.
+3. Select Delete from the Actions pull-down menu.
+4. Click OK when prompted.
+
+Note: You cannot delete a category if it is used in an existing policy. All associations with existing policies must be removed before a category can be deleted.
+
+
+### Assigning a Category
+To assign a category value to one or more entities, such as cluster, VM, image, or subnet:
+
+1. Go to the entity type dashboard.
+2. Select all the entities of that type you want to tag with the same category value.
+3. Select Manage Categories from the Actions pull-down menu.
+4. In the Manage [Cluster|VM|Image|Subnet] Categories page: 
+   a. Enter a category name. 
+   b. Select the target value from the list. 
+   c. Click the plus sign (+) to assign that category value to the selected entities. Repeat this step to assign a value for a second category.
+5. Click Save.
+
+Note: Categories support multi-cardinality, which means you can assign multiple category values to the same entity.
