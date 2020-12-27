@@ -156,3 +156,40 @@ As mentioned earlier, once user authentication is configured, you can later use 
   * Values: AAPM
   Then, click Save.
 9. Close the Role Mapping Management Window.
+
+## 14. Role-Based Access Control
+In large enterprises, it is essential to control the level of access across users. For instance, hardware resources are costly, shared, and in limited supply. Allowing all users to consume, manage, and monitor IT resources can lead to fast and inefficient consumption of resources. Thus, we want to restrict a selected group of users to manage them - someone like an infrastructure admin. However, entities like VMs, applications, clusters, etc. are best defined by the corresponding administrators. So you would want to allow corresponding administrators to access such entities but prevent them from altering hardware resources.
+
+Consider another example, where you are dealing with vendors or contractors. Allowing these users to view or edit sensitive and confidential information can lead to a security breach. In such scenarios, you would want to restrict them from editing certain details of a project and also selectively limit access to certain resources.
+
+All this can be implemented with Role-Based Access Control and Prism Central makes it a simpler process.
+
+Role-based access control ensures that only specified individuals get access to the data they should have access to and all access, requests, and grants are fully auditable.
+
+Prism Central supports role-based access control (RBAC) that you can configure to provide customized access permissions for users based on their assigned roles.
+
+### Built-in Roles
+To simplify the process of creating roles and providing access permissions, Prism Central includes a set of pre-built roles that are defined by default. Let us explore each of these roles and their corresponding access permission.
+
+* Super admin: Full administrator privileges.
+* Prism admin: Full administrator privileges but cannot create or modify user accounts.
+* Prism viewer: View-only privileges.
+* Self-Service admin: Permissions to manage cloud-oriented resources and services.
+* Project admin: Manages cloud objects such as roles, VMs, apps, and marketplace belonging to a project.
+* Developer: Has access to develop, troubleshoot, and test applications in a project.
+* Consumer: Has access to deploy applications and blueprints in a project.
+* Operator: Has access to the run actions on deployed applications in a project.
+
+The project admin, developer, consumer, and operator roles are available when assigning roles in a project.
+
+### Custom Roles
+If the built-in roles are not sufficient for your needs, you can create one or more custom roles. But these features are restricted to AHV only.
+
+To create a custom role:
+
+1. Go to the roles dashboard.
+2. Click the Create Role button.
+3. Enter a name for the new role and describe the role.
+4. Select an entity, the permissions listed for that entity are listed.
+5. Select the permissions you want to apply. If you want to specify custom permissions, click the Change link and check all the permissions you want to enable.
+6. Click Save.
