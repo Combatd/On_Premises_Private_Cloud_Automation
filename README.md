@@ -135,3 +135,24 @@ Active Directory (AD) is a directory service implemented by Microsoft for Window
 Users can authenticate through a qualified identity provider when SAML support is enabled for Prism Central. The Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between two parties, ADFS as the identity provider (IDP) and Prism Central as the service provider.
 
 As mentioned earlier, once user authentication is configured, you can later use these user groups/accounts to assign explicit roles and permissions.
+
+## 13. Exercise - Identity Management
+
+1. To begin, navigate to Authentication in the Settings.
+2. Create a New Directory.
+3. Enter the following details in Authentication Configuration:
+  * Name: Active Directory
+  * Domain: mydomain.com 
+  Then, scroll down.
+4. Enter the ```idap://myurl``` in the Directory URL and scroll down.
+5. Enter the following details in Directory List:
+  * Name: serviceaccount@mydomain.com
+  * Service Account Password: P@ssword1
+  Then, click Save.
+6. Configure role mapping to this directory.
+7. Click New Mapping in Role Mapping Window.
+8. Enter the following details in the form:
+  * Type: group
+  * Values: AAPM
+  Then, click Save.
+9. Close the Role Mapping Management Window.
