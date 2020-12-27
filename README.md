@@ -112,3 +112,26 @@ It provides you with real-time performance behaviour of VMs, detects anomalies a
 4. One Click Upgrades
 
 Prism solves update reluctance by offering one-click upgrades for each product within a cluster. The one-click upgrade process downloads the next version or allows you to upload manually as needed.
+
+## 11. Identity Management
+
+Previously, we had briefly covered various features of Prism Central that help organizations manage a multi-cluster environment. Going forward, we will dive deep into each of these features and explain its significance.
+
+The first feature we will be discussing is identity management. Let’s understand how authentication and authorization are the key components of identity management.
+
+Authentication is all about verifying a user's identity against a trusted source of truth like Active Directory or any other IDP (Identity Provider). Once the identity has been authenticated, the next piece is to determine what they are authorized to do or what they can access; this is the authorization piece.
+
+To ensure that trusted users are provided with access to Prism, Prism Central supports user authentication. It is important to know user authentication because it is the fundamental requirement to configure other Prism Central features such as Role-Based Access Control and Prism Self Service. The user accounts configured are later used to assign Role-Based Access Control and create a project using Prism Self Service. There are three authentication options within Prism Central.
+
+### Local User Authentication
+Each Nutanix cluster includes a Prism Central admin user account that is created automatically. You can add more locally defined users as needed and update the permissions as necessary.
+
+### Active Directory Authentication
+Users can authenticate using their Active Directory or OpenLDAP credentials when Active Directory support is enabled for Prism Central.
+
+Active Directory (AD) is a directory service implemented by Microsoft for Windows domain networks. OpenLDAP is a free, open source directory service, which uses the Lightweight Directory Access Protocol (LDAP), developed by the OpenLDAP project. Nutanix currently supports the OpenLDAP 2.4 release running on CentOS distributions only.
+
+### SAML Authentication
+Users can authenticate through a qualified identity provider when SAML support is enabled for Prism Central. The Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between two parties, ADFS as the identity provider (IDP) and Prism Central as the service provider.
+
+As mentioned earlier, once user authentication is configured, you can later use these user groups/accounts to assign explicit roles and permissions.
