@@ -193,3 +193,11 @@ To create a custom role:
 4. Select an entity, the permissions listed for that entity are listed.
 5. Select the permissions you want to apply. If you want to specify custom permissions, click the Change link and check all the permissions you want to enable.
 6. Click Save.
+
+To modify a custom role:
+
+1. Go to the roles dashboard.
+2. Select the desired role from the list.
+3. Select Update Role from the Actions pull-down list.
+4. Update the field values as desired.
+5. Click Save.
