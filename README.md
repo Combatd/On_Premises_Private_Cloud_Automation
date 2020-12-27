@@ -203,6 +203,7 @@ To modify a custom role:
 5. Click Save.
 
 ## 16. Categories
+[YouTube Video](https://youtu.be/f5OMlJWJm5M)
 Categories are used to define groups of entities in which policies and enforcement are applied. They typically apply, but are not limited to: environment, application type, application tier, etc.
 
 These categories can then be used by policies to determine what rules/actions to apply.
