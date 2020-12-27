@@ -98,13 +98,17 @@ IT governance can be achieved only when there is a provision to visualize IT res
 ### Prism Capabilities
 
 1. Infrastructure Management
+
 Prism Central can manage your global Nutanix HCI infrastructure from one console. Prism simplifies and streamlines common workflows to make hypervisor and workload management as easy as checking your email.
 
 2. Just in Time Forecast
+
 Prism provides IT teams with visibility into how capacity is being used, an accurate forecast on how it will meet business demands, and a real-time insight of any hidden waste.
 
 3. Automatic Remediation
+
 It provides you with real-time performance behaviour of VMs, detects anomalies automatically, and enables the IT team to automate remediation.
 
 4. One Click Upgrades
+
 Prism solves update reluctance by offering one-click upgrades for each product within a cluster. The one-click upgrade process downloads the next version or allows you to upload manually as needed.
