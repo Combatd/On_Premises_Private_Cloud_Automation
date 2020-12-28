@@ -8,12 +8,13 @@ In the project at the end of the On Premises Private Cloud Automation course, I 
 * Enhance the blueprint to provide PaaS by configuring the web application and creating web-tier scaling. Test the web application works by confirming scale-out load balancing across the web tier and database write updates.
 * Enhance the blueprint to provide an action to update the database password and update the web application to use the new password, achieving a SaaS-like experience for developers with delegated, post deployment operations. Test the web application works with the new password.
 
-## Course Overview
+## Course Overview - Managing Multiple Clusters and Workspaces
 In this course, we will cover various tools and features that Nutanix provides to eliminate the tedious, time-consuming process of manually operating parts of the cloud. We will walk you through how Nutanix Prism and Nutanix Calm increase visibility and eliminate IT intervention in performing repetitive, laborious tasks.
 
 We will discuss how Nutanix Prism helps you manage multiple clusters and workloads. We will also illustrate how Nutanix Calm delivers simple, repeatable, and automated management of application creation, consumption, and governance. We have also included demo videos explaining these features and processes in the Nutanix environment.
 
 ## Glossary of Key Terms in this Lesson
+
 ### Authentication
 
 Authentication is about verifying a user's identity against a trusted source of truth like Active Directory or any other IDP (Identity Provider).
@@ -416,3 +417,14 @@ To upload an image from a workstation:
 When you assign categories to images, image placement decisions are delegated to configured policies. When you choose to manually select the target clusters, you have the option to place on all clusters registered to the PC or only on a subset of registered clusters.
 
 Here is a demo that provides you with a detailed explanation on the procedure. [YouTube Video](https://youtu.be/0iWBvGyTfKs)
+
+### Lesson Conclusion - Managing Multiple Clusters and Workspaces
+To summarize, Prism Central manages multiple clusters across different locations and Prism Element manages an individual cluster. Prism is rich with various features that help to achieve IT governance.
+
+In order to manage multiple clusters and workloads Prism supports:
+
+* User authentication to authorize user’s identity.
+* Role-Based Access Control to ensure right users have access to the right resources.
+* Categories to define groups of entities for which policies and enforcement can be applied.
+* Prism Self Service to create projects without IT intervention.
+* Image management to manage images from a centralized location.
