@@ -443,3 +443,12 @@ In the rest of this course, we’ll walk through the various Calm capabilities t
 We will start by introducing you to Nutanix Calm. We’ll talk about what Calm is, why it exists, and what it helps you accomplish. We’ll walk through several key capabilities, including providers, projects, role-based access control, and marketplace publishing.
 
 By the end of this lesson, you will be familiar with how to publish blueprints to the marketplace for customer self-service, on-demand application workloads. You will also understand how to complete a deployment, audit, and deprovision for VM IaaS.
+
+### 2. A Growing Need for Simplification
+Managing applications in an enterprise environment has grown increasingly challenging over the years.
+
+The sheer number of applications has resulted in increased complexity. There is no single, central owner for apps – different teams own their own applications. Fragmented ownership results in knowledge silos, which in turn leads to a lack of productivity.
+
+And finally, the growing popularity of hybrid models – with applications distributed across both private and public clouds – introduces management challenges as well.
+
+To address the problem of increasingly complex application management, Nutanix offers Calm.
