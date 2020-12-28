@@ -595,3 +595,39 @@ The Marketplace provides a set of pre-seeded application Blueprints that are ava
 The Marketplace provides a one-click deployment experience for requesting applications or services. It presents a user with all the applications or services their projects and roles have the rights to access. The user can then select an application and deploy it, enjoying fully automated provisioning and scaling for both traditional multitiered applications and modern distributed services.
 
 And finally, the Marketplace empowers organizations to consume services in a fully self-service manner at their own speed and includes built-in versioning to allow access to multiple revisions of blueprints.
+
+## 14. Calm: Providers
+As discussed earlier, Providers are public and private clouds that you can use to deploy, monitor, and govern your applications.
+
+[Nutanix Calm: Providers - YouTube](https://youtu.be/rUum_ORNppY)
+
+### Supported Providers
+Nutanix Calm supports the following hypervisors and cloud providers as of version 3.0, with additional support options planned for future releases:
+
+* AHV (the native Nutanix hypervisor)
+* VMware vSphere (ESXi) on any infrastructure (Nutanix and non-Nutanix)
+* Amazon Web Services (AWS) and AWS GovCloud
+* Google Cloud Platform (GCP)
+* Microsoft Azure and Azure GovCloud
+* Nutanix Xi (public cloud)
+* Kubernetes (Nutanix Karbon and GKE)
+
+In general, you can configure one or more of these platforms as service providers if you want to create and use a blueprint to consume them. You can optionally specify costs for CPU, Memory, and Disk and these “show back” costs will be displayed during blueprint design and launch.
+
+When using Nutanix as a Provider, note that all AHV clusters that are registered to the Prism Central instance from which you are running Calm are automatically added as providers. If you want to add a remote Prism Central instance as a provider, you must add that remote Prism Central instance as an account in Calm.
+
+All other providers need to be configured manually, depending on the clouds that you intend to use.
+
+### Configuring New Service Providers
+At a very high level, to add a new service provider, you need to:
+
+1. Navigate to the Settings page in Calm.
+2. Click Providers at the top of the screen. By default, the Settings page opens on the General tab.
+3. Click + Add Provider.
+4. Name your provider and select the Type from the drop down menu.
+
+You will then be required to provide configuration information specific to the type of provider you have selected.
+
+For example, if you select Nutanix with the intention of using a remote Prism Central cluster, you will need to provide the Prism Central IP and port, as well as administrative credentials (username and password) for Calm to use.
+
+On the other hand, if you select AWS, you will need to specify the Access Key ID, the Secret Access Key, and regions that you want included.
