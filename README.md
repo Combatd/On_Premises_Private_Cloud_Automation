@@ -713,6 +713,7 @@ To delete a Project:
 
 ## 18. Calm: Role-Based Access Control (RBAC)
 [YouTube Video](https://youtu.be/X_eh2qCsx7o)
+
 As we briefly discussed in the previous section, Calm supports four different user roles:
 
 * Project Admin
@@ -726,4 +727,4 @@ For example, in the Marketplace, a user with the Developer role can clone and ed
 
 It’s important to note here that the four roles listed here are also roles in Prism Central, and this speaks to how tightly integrated Prism Central and Calm are. By design, Calm inherits the RBAC configuration that you define in Prism. If you assign someone the role of Project Admin in Prism Central, for example, they will have access to Project Admin permissions in Calm as well.
 
-For details about the permissions associated with each role, see the Roles and Responsibilities table of the Calm Admin Guide.
+For details about the permissions associated with each role, see the [Roles and Responsibilities](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v271:nuc-roles-responsibility-matrix-c.html) table of the Calm Admin Guide.
