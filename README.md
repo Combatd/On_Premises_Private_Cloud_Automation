@@ -8,7 +8,7 @@ In the project at the end of the On Premises Private Cloud Automation course, I 
 * Enhance the blueprint to provide PaaS by configuring the web application and creating web-tier scaling. Test the web application works by confirming scale-out load balancing across the web tier and database write updates.
 * Enhance the blueprint to provide an action to update the database password and update the web application to use the new password, achieving a SaaS-like experience for developers with delegated, post deployment operations. Test the web application works with the new password.
 
-## Course Overview - Managing Multiple Clusters and Workspaces
+## Lesson 1 Overview - Managing Multiple Clusters and Workspaces
 In this course, we will cover various tools and features that Nutanix provides to eliminate the tedious, time-consuming process of manually operating parts of the cloud. We will walk you through how Nutanix Prism and Nutanix Calm increase visibility and eliminate IT intervention in performing repetitive, laborious tasks.
 
 We will discuss how Nutanix Prism helps you manage multiple clusters and workloads. We will also illustrate how Nutanix Calm delivers simple, repeatable, and automated management of application creation, consumption, and governance. We have also included demo videos explaining these features and processes in the Nutanix environment.
@@ -428,3 +428,18 @@ In order to manage multiple clusters and workloads Prism supports:
 * Categories to define groups of entities for which policies and enforcement can be applied.
 * Prism Self Service to create projects without IT intervention.
 * Image management to manage images from a centralized location.
+
+## Lesson 2 Overview - Calm Automation for Application Lifecycle Management
+In the last lesson, we spoke at length about Prism Central and its capabilities, because Prism lays the foundation for automation in both private and hybrid clouds.
+
+To give you some context, although they’re beyond the scope of this lesson, other Nutanix products – Karbon, for containers; Era, for databases; Prism Pro, a license that adds machine learning, analytics, and advanced automation to Prism – are all closely integrated with Prism. And to truly make the most of Calm, which automates application deployment and simplifies lifecycle management, it was important that you understand Prism in more detail than we covered in the Modern Private Cloud Infrastructure course.
+
+Now that we’ve crossed that bridge, we can dive into the centerpiece of this Private Cloud Automation course – a product called Nutanix Calm.
+
+Calm answers the growing challenge of enterprise application management, a problem that IT teams across the world have been wrestling with for years. It allows enterprises to address the challenges that arise from both the increasing volume of applications, as well as the increased complexity of the apps themselves. Calm accomplishes this by turning application management into streamlined, automated, and repeatable work.
+
+In the rest of this course, we’ll walk through the various Calm capabilities that enable our vision of application automation.
+
+We will start by introducing you to Nutanix Calm. We’ll talk about what Calm is, why it exists, and what it helps you accomplish. We’ll walk through several key capabilities, including providers, projects, role-based access control, and marketplace publishing.
+
+By the end of this lesson, you will be familiar with how to publish blueprints to the marketplace for customer self-service, on-demand application workloads. You will also understand how to complete a deployment, audit, and deprovision for VM IaaS.
