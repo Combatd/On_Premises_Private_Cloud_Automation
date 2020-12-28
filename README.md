@@ -513,3 +513,44 @@ A private key remains with a user and acts as proof of that user’s identity. A
 Cloud-init is the industry standard method across multiple Linux distributions for OS initialization. It is supported across all major public cloud providers, provisioning systems for private cloud infrastructure, and bare-metal installations. Linux distributions sometimes distinguish their variants between desktop, server, and cloud editions with only the latter having cloud-init facilities. Increasingly server and cloud editions have combined to offer cloud-init everywhere.
 
 Cloud-init can identify the host infrastructure provider it is running on during boot, read any provided metadata, and initialize the system accordingly. This may involve setting up the network, adding storage devices, provisioning SSH access keys, and configuring many other aspects of the OS. Cloud-init will also parse and process any optional user or vendor data that was passed to the instance.
+
+### 10. Generate an SSH Key Pair
+1.Start your lab session by clicking “Access Lab,” and then, after a moment, “Start Streaming.”
+
+2. Click the Start menu on your Frame desktop and select Cygwin64 Terminal.
+
+3. Type the following commands in the Cygwin64 Terminal. After creating the .ssh folder, use the cd command to make .ssh your working directory:
+```
+ cd /cygdrive/c/cygwin64/workspace
+
+ mkdir .ssh
+
+ cd .ssh
+ ```
+4. Create a new SSH key pair with the RSA algorithm. To do this, type:
+```
+ ssh-keygen -t rsa
+ ```
+5. When prompted to enter the file where the key will be saved, enter the file path:
+```
+ ./id_rsa 
+```
+
+6. Press Enter. Leave the Enter passphrase (empty for no passphrase): prompt empty and press Enter to use no passphrase.
+
+7. Leave the prompt blank and press Enter again to confirm using an empty passphrase.
+
+A key fingerprint and randomart image will populate the screen, confirming you have successfully changed the SSH key pair. Press Enter.
+
+8. View the keys.
+```
+    ls -a
+```
+9. On the following new command prompt, type:
+```
+    ssh-keygen -t rsa -p -N "" -m pem -f /cygdrive/c/cygwin64/workspace/.ssh/id_rsa
+```
+This modifies the private key to ensure that the public key may be extracted from it and that the key pair can be used for password-less SSH authentication.
+
+10. Close the Cygwin64 Terminal window.
+
