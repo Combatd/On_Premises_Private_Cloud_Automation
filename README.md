@@ -633,3 +633,78 @@ You will then be required to provide configuration information specific to the t
 For example, if you select Nutanix with the intention of using a remote Prism Central cluster, you will need to provide the Prism Central IP and port, as well as administrative credentials (username and password) for Calm to use.
 
 On the other hand, if you select AWS, you will need to specify the Access Key ID, the Secret Access Key, and regions that you want included.
+
+## 16. Calm: Projects
+A Project is a set of users and groups with a common set of requirements or a common structure and function, such as a team of engineers collaborating on an engineering project. A Project also specifies the roles to associate with its members, networks that they can use, infrastructure to deploy onto, and (optionally) usage limits on infrastructure resources.
+
+By using different projects assigned to different clusters and users, administrators can ensure that workloads are deployed the right way each time. For example, a developer can be a Project Admin for a dev/test project, so they have full control to deploy to their development clusters or to a cloud, while having Read Only access to production projects, allowing them access to logs but no ability to alter production workloads.
+
+### Infrastructure
+Infrastructure defines the type of Providers for a Project, and a Project can involve multiple types of infrastructure. As we discussed earlier, the Providers that Nutanix supports are Nutanix AHV, Nutanix Xi, VMware, AWS, Azure, GCP, and Kubernetes.
+
+### Environment
+The Project’s Environment allows you to add multiple credentials and the default infrastructure configuration for each selected Provider, these are typically your organization’s VM standards. You must configure the Environment before launching a pre-seeded blueprint from the Marketplace: the blueprint will use the environment settings to provision workloads.
+
+An additional benefit to creating a project Environment, you can clone that configuration for the VM while configuring a Blueprint, saving design time while increasing adoption for a standard configuration.
+
+### Credentials
+Credentials help in abstracting identity settings while connecting to an external system. You can configure multiple types of credentials (either SSH key or password) and define them as part of the Environment configuration. You can use these configured project environment credentials when launching a pre-seeded application Blueprint.
+
+### Creating a Project
+To create a project, you need to click Projects on the Calm sidebar, and click + Create Project. On the page that is displayed, you need to provide information in four major sections: General Settings; Users, Groups, and Roles; Infrastructure; and Quotas. Of these, Quotas is optional.
+
+A quota specifies a usage limit on an infrastructure resource (compute, memory, or storage) for the project. Project members cannot use more than the specified limit.
+
+A quota does not guarantee the project a certain amount of infrastructure resources. Instead, it ensures that a single project or a few projects do not overrun the infrastructure.
+
+If a Nutanix cluster runs out of a resource, project members cannot use the resource even if the project has not reached its specified limit. However, if a project requires more resources, you can increase its quota.
+
+If you do not specify a quota, you cannot apply usage limits because the project has unlimited consumption. However, project usage statistics are collected on AHV workloads even if you do not specify a quota.
+
+On the Create Project page:
+
+1. In the General Settings section, name the project and provide a description.
+2. In the Users, Groups, and Roles section, add users or user groups and specify the level of permissions they will have in Calm. User roles supported in Calm are:
+
+* Project Admin
+* Developer
+* Consumer
+* Operator
+
+3. In the Infrastructure section, select a Provider for use with your Project. Providers are configured separately, from the Settings page, as we discussed in the previous section.
+
+4. Optionally, in the Quotas section, specify usage limits for vCPUs, storage, and memory.
+
+5. After you complete the required sections for the Project, click Save & Configure Environment. The next step in creating a project is setting up the Environment.
+
+### Configuring the Environment
+The Environment specifies the default VM infrastructure configuration used when launching a pre-seeded Marketplace blueprint for each provider.
+
+Environment configuration depends on the provider(s) used in the project. For simplicity’s sake, we will describe the Environment configuration process for AHV.
+
+After clicking the Environment tab, you will need to:
+
+1. Add credentials
+2. Select the Nutanix provider under VM Configuration
+3. Select an operating system (either Windows or Linux).
+4. Specify VM details, including name, images to be used, vCPUs and cores per vCPU, memory, disk size, vGPUs, network adapters, and so on.
+5. Confirm whether or not to check log on status after the VM is created, and specify the connection type and port.
+6. Once you have provided all the required information, click Save to complete the process.
+
+### Modifying a Project
+Modifying a Project gives you access to all of the same fields as creating one. To modify a Project, you need to:
+
+1. Navigate to the Projects page.
+2. Open the Project you want to modify.
+3. Update the sections as needed.
+4. Save your changes.
+
+### Deleting a Project
+Deleting a Project removes it entirely from Calm, with no way to recover it. For you to delete a Project, it must not be associated with an application or a blueprint. Calm will verify this when you attempt to delete a project and, if an association is found, it will prevent you from proceeding.
+
+To delete a Project:
+
+1. Navigate to the Projects page.
+2. Select the checkbox next to the Project you want to delete.
+3. Select Delete from the Actions drop down menu.
+4. Click Delete when prompted for confirmation.
