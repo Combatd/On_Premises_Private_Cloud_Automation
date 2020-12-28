@@ -255,3 +255,59 @@ To assign a category value to one or more entities, such as cluster, VM, image, 
 5. Click Save.
 
 Note: Categories support multi-cardinality, which means you can assign multiple category values to the same entity.
+
+## 18. Prism Central Projects
+
+A well-designed hybrid cloud can allow IT users—such as developers and line-of-business managers—to gain access to IT infrastructure and services through a self-service portal. This not only gives administrators with immediate access to services, but also reduces the burden on IT since it no longer has to serve as the middleman.
+
+Prism Self Service represents a special view within Prism Central. While Prism Central enables infrastructure management across clusters, Prism Self Service allows end users to consume that infrastructure in a self-service manner.
+
+Administrators can then set up self-service access for their Nutanix environment in a few clicks out of Prism Self Service.
+
+### Working with Projects in Prism
+The Prism Self Service feature allows you to create projects where consumers of IT infrastructure within an enterprise—individual users or teams such as development, test, and DevOps—can provision and manage VMs in a self-service manner, without having to engage IT in day-to-day operations.
+
+### What is a Project?
+A project defines a set of Active Directory users and groups with a common set of requirements or a common function, such as a team of people collaborating on an engineering project.
+
+### Creating a Project
+Before creating a project ensure to configure authentication.
+
+To create a project, navigate to the Projects dashboard and click the Create Project button. On the page that is displayed, you must provide information in five major sections: General Settings; Cluster; User, Groups, and Roles; Network; and Quotas. Of these, Quotas is optional.
+
+A quota specifies a usage limit on an infrastructure resource (compute, memory, or storage) for the project. Project members cannot use more than the specified limit.
+
+A quota does not guarantee the project a certain amount of infrastructure resources. Instead, it ensures that a single project or a small number of projects do not overrun the infrastructure.
+
+If the Nutanix cluster runs out of a resource, project members might not be able to use the resource even if the project has not reached its specified limit. However, if a project requires more resources, you can increase its quota.
+
+If you do not specify a quota, no usage limit is applied. However, usage statistics are collected even if you do not specify a quota.
+
+On the Create Project page:
+
+1. In the General Settings section, enter a name and description for the new project.
+2. In the Cluster section, select the target cluster on which the project has to be created.
+3. Add Users, Groups, and Roles.
+4. Check Allow Collaboration, to allow any group member to see the VMs, applications, and other objects created by other members of the group.
+5. Select the usable network and the default network for the project.
+6. Optionally, you can check the Quotas box to specify usage limits for compute, storage, and memory.
+7. Click Save.
+
+### Modifying a Project
+To modify an existing project:
+
+Go to the projects dashboard.
+Select the target project.
+Select Update Project from the Actions pull-down menu.
+Update the field values as desired.
+Click Save.
+
+### Deleting a Project
+To delete a project:
+
+Go to the projects dashboard.
+Select the target project.
+Select Delete from the Actions pull-down menu.
+Click OK.
+Note: Before you can delete a project, you must first remove any VMs and networks, in that order, from the project.
+
