@@ -515,6 +515,8 @@ Cloud-init is the industry standard method across multiple Linux distributions f
 Cloud-init can identify the host infrastructure provider it is running on during boot, read any provided metadata, and initialize the system accordingly. This may involve setting up the network, adding storage devices, provisioning SSH access keys, and configuring many other aspects of the OS. Cloud-init will also parse and process any optional user or vendor data that was passed to the instance.
 
 ### 10. Generate an SSH Key Pair
+[Exercise Solution](https://youtu.be/CKDBjZn7zQU)
+
 1.Start your lab session by clicking “Access Lab,” and then, after a moment, “Start Streaming.”
 
 2. Click the Start menu on your Frame desktop and select Cygwin64 Terminal.
