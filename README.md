@@ -517,11 +517,12 @@ Cloud-init can identify the host infrastructure provider it is running on during
 ### 10. Generate an SSH Key Pair
 [Exercise Solution](https://youtu.be/CKDBjZn7zQU)
 
-1.Start your lab session by clicking “Access Lab,” and then, after a moment, “Start Streaming.”
+1. Start your lab session by clicking “Access Lab,” and then, after a moment, “Start Streaming.”
 
 2. Click the Start menu on your Frame desktop and select Cygwin64 Terminal.
 
 3. Type the following commands in the Cygwin64 Terminal. After creating the .ssh folder, use the cd command to make .ssh your working directory:
+
 ```
  cd /cygdrive/c/cygwin64/workspace
 
@@ -530,10 +531,12 @@ Cloud-init can identify the host infrastructure provider it is running on during
  cd .ssh
  ```
 4. Create a new SSH key pair with the RSA algorithm. To do this, type:
+
 ```
  ssh-keygen -t rsa
  ```
 5. When prompted to enter the file where the key will be saved, enter the file path:
+
 ```
  ./id_rsa 
 ```
@@ -545,10 +548,12 @@ Cloud-init can identify the host infrastructure provider it is running on during
 A key fingerprint and randomart image will populate the screen, confirming you have successfully changed the SSH key pair. Press Enter.
 
 8. View the keys.
+
 ```
     ls -a
 ```
 9. On the following new command prompt, type:
+
 ```
     ssh-keygen -t rsa -p -N "" -m pem -f /cygdrive/c/cygwin64/workspace/.ssh/id_rsa
 ```
