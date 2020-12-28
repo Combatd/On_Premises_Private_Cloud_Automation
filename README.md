@@ -444,7 +444,7 @@ We will start by introducing you to Nutanix Calm. We’ll talk about what Calm i
 
 By the end of this lesson, you will be familiar with how to publish blueprints to the marketplace for customer self-service, on-demand application workloads. You will also understand how to complete a deployment, audit, and deprovision for VM IaaS.
 
-### 2. A Growing Need for Simplification
+## 2. A Growing Need for Simplification
 Managing applications in an enterprise environment has grown increasingly challenging over the years.
 
 The sheer number of applications has resulted in increased complexity. There is no single, central owner for apps – different teams own their own applications. Fragmented ownership results in knowledge silos, which in turn leads to a lack of productivity.
@@ -453,11 +453,40 @@ And finally, the growing popularity of hybrid models – with applications distr
 
 To address the problem of increasingly complex application management, Nutanix offers Calm.
 
-### 3. Intro to Application Management
+## 3. Intro to Application Management
 The success of the public cloud is generally due to rapid provisioning of facilities in an on-demand fashion under a "pay as you go" Operational Expenditure model. In order to replicate the cloud experience on-premise, a private cloud must offer self-service of automated facilities. There is a maturity in progression from IaaS to PaaS to SaaS to provide these experiences in a private cloud, and later you’ll learn to do this for a public, then hybrid cloud.
 
 [YouTube Link](https://youtu.be/nWmR7MZjn3o)
 
-* The Importance of Blueprints in Nutanix Calm
+### The Importance of Blueprints in Nutanix Calm
 
 Blueprints are the heart of Calm - they model a business process for infrastructure, operations, and governance together. This unifies the different IT and application silos that normally fragment and slow the business. Blueprints can be exported as a JSON file and shared between people and unfederated Calm instances. It is a typical practice for blueprints to be placed under revision control, there are many Calm blueprints freely available in public Git repositories. In other words, Calm blueprints are software artifacts and they can encompass advanced software engineering practices, but do not be alarmed: we will progressively build up your familiarity with Calm capabilities over the remaining lessons through the easy-to-use Prism Central web console.
+
+## 4. What is Nutanix Calm?
+Calm provides advanced application-level orchestration that transforms how IT teams manage applications and support the business. Fully integrated into the Nutanix platform, Calm delivers a powerful, common management framework that can be simultaneously leveraged by multiple IT teams to rapidly create and deliver applications.
+
+By approaching applications as complete entities, not just virtual machines (VMs), Calm automates how applications are created, consumed and governed. Calm delivers simple, repeatable and automated management of applications across a variety of environments, including private and public clouds.
+
+### Automate, Empower, and Relax
+Calm builds on the foundation laid by the Nutanix Enterprise Cloud. That foundation, as we discussed in the previous course consists of AOS, AHV, and Prism – providing an abstraction of hardware resources, native virtualization, and one-click operations.
+
+On top of this, Calm provides two key capabilities: application automation and multi-cloud management.
+
+Calm, whose name arose historically as an acronym for Cloud Application Lifecycle Management, has the ability to manage applications on and off of Nutanix infrastructure, giving hybrid cloud engineers the power to meet diverse business requirements across multiple providers and lifecycle operations from the birth to death of an application across hybrid cloud scenarios. As its name suggests, you should be able to automate, empower, and have a relaxing experience with Calm!
+
+Application automation consists of three capabilities: app-centric automation and lifecycle management, policy-based governance, self-service provisioning.
+
+Of these, self-service and governance themselves have three major components:
+
+* Publishing blueprints to different groups using a policy-driven model
+* Reducing miscommunication between teams
+* Providing an alternative to roll-your-own cloud services while maintaining complete control and visibility over operations
+
+Multi-cloud management involves abstracting applications from cloud infrastructure; deploying and managing applications on any cloud; and visibility and control of resource consumption.
+
+### Accessing Calm
+Calm is accessed from Prism Central. Click the menu icon at the top right of the screen, select Services, and then click Calm. [YouTube Link](https://youtu.be/2bp3cA_6qVY)
+
+Calm opens within the Prism Central window of your browser and you will see a new sidebar to the left of the page that gives you access to Calm’s capabilities. By default, when Calm opens, the Applications page will be displayed.
+
+The sidebar options, in order from top to bottom, are Marketplace, Blueprints, Applications, Library, Settings, Marketplace Manager, and Projects. As we progress through this course, we will discuss these options in more detail.
