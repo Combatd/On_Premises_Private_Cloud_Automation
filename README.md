@@ -13,6 +13,45 @@ In this course, we will cover various tools and features that Nutanix provides t
 
 We will discuss how Nutanix Prism helps you manage multiple clusters and workloads. We will also illustrate how Nutanix Calm delivers simple, repeatable, and automated management of application creation, consumption, and governance. We have also included demo videos explaining these features and processes in the Nutanix environment.
 
+## Glossary of Key Terms in this Lesson
+### Authentication
+
+Authentication is about verifying a user's identity against a trusted source of truth like Active Directory or any other IDP (Identity Provider).
+Authorization
+
+After a user has been authenticated, authorization determines what permissions/access they have, and what they are allowed or not allowed to do.
+
+### Categories
+
+Categories are used to define groups of entities in which policies and enforcement are applied.
+### Image management
+
+A Prism Central feature that enables you to upload images to clusters and maintain an inventory of the images on them.
+
+### Image service
+
+Ensures that uploaded images are saved to a cluster, and copied to additional clusters whenever you need them, on-demand.
+
+### IT governance
+
+IT governance is an element of corporate governance, intended at enhancing the overall administration of IT and reaping improved value from investment in information and technology.
+
+### Prism Central
+
+The Nutanix scale-out control plane to manage multiple joined Nutanix clusters and provide advanced management capabilities from a single pane of glass web console.
+
+### Project
+
+A project defines a set of Active Directory with a common set of requirements or a common function, such as a team of people collaborating on an engineering project.
+
+### Quota
+
+A quota specifies a usage limit on an infrastructure resource (compute, memory, or storage) for the project.
+
+### Role-Based Access Control (RBAC)
+
+Role-Based Access Control ensures that only specified individuals get access to the data they should have access to and all access, requests, and grants are fully auditable.
+
 ## Lesson 1: Managing Multiple Cluster and Workload Resources
 In this lesson, we will explain the difference between Prism Element and Prism Central. We will describe some of the key features of Prism Central such as identity management, role-based access control, image management, self-service, and categories. These features contribute in effective management of VMs and workloads.
 
