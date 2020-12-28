@@ -582,7 +582,7 @@ A project defines a set of users and groups with a common set of requirements or
 Role-Based Access Control (RBAC) lets you define different roles in an organization and assign permissions accordingly. Within Calm, RBAC enables organizations to control who can perform specific actions, including:
 
 * Marketplace (publish, clone, provision)
-*Blueprint (create, update, clone, delete, launch)
+* Blueprint (create, update, clone, delete, launch)
 * Applications (manage, edit, create)
 * Projects (add, update, assign resources)
 * User (add, change, remove, roles)
