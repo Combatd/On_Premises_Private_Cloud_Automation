@@ -452,3 +452,12 @@ The sheer number of applications has resulted in increased complexity. There is 
 And finally, the growing popularity of hybrid models – with applications distributed across both private and public clouds – introduces management challenges as well.
 
 To address the problem of increasingly complex application management, Nutanix offers Calm.
+
+### 3. Intro to Application Management
+The success of the public cloud is generally due to rapid provisioning of facilities in an on-demand fashion under a "pay as you go" Operational Expenditure model. In order to replicate the cloud experience on-premise, a private cloud must offer self-service of automated facilities. There is a maturity in progression from IaaS to PaaS to SaaS to provide these experiences in a private cloud, and later you’ll learn to do this for a public, then hybrid cloud.
+
+[YouTube Link](https://youtu.be/nWmR7MZjn3o)
+
+* The Importance of Blueprints in Nutanix Calm
+
+Blueprints are the heart of Calm - they model a business process for infrastructure, operations, and governance together. This unifies the different IT and application silos that normally fragment and slow the business. Blueprints can be exported as a JSON file and shared between people and unfederated Calm instances. It is a typical practice for blueprints to be placed under revision control, there are many Calm blueprints freely available in public Git repositories. In other words, Calm blueprints are software artifacts and they can encompass advanced software engineering practices, but do not be alarmed: we will progressively build up your familiarity with Calm capabilities over the remaining lessons through the easy-to-use Prism Central web console.
