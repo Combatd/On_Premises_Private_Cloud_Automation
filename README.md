@@ -710,3 +710,20 @@ To delete a Project:
 2. Select the checkbox next to the Project you want to delete.
 3. Select Delete from the Actions drop down menu.
 4. Click Delete when prompted for confirmation.
+
+## 18. Calm: Role-Based Access Control (RBAC)
+[YouTube Video](https://youtu.be/X_eh2qCsx7o)
+As we briefly discussed in the previous section, Calm supports four different user roles:
+
+* Project Admin
+* Developer
+* Consumer
+* Operator
+
+Each role provides a different level of access to various Calm capabilities related to the Marketplace, Blueprints, Applications, Settings, the Task Library, Projects, and Users.
+
+For example, in the Marketplace, a user with the Developer role can clone and edit app blueprints, make a publishing request for an application. A Project Admin, can do both those things, and send the app publishing request to an administrator. On the other hand, Consumers can only launch blueprints while Operators can only choose operations on existing, deployed workloads in their project. In other words, lower roles are subsets of higher roles.
+
+It’s important to note here that the four roles listed here are also roles in Prism Central, and this speaks to how tightly integrated Prism Central and Calm are. By design, Calm inherits the RBAC configuration that you define in Prism. If you assign someone the role of Project Admin in Prism Central, for example, they will have access to Project Admin permissions in Calm as well.
+
+For details about the permissions associated with each role, see the Roles and Responsibilities table of the Calm Admin Guide.
