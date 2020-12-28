@@ -635,6 +635,8 @@ For example, if you select Nutanix with the intention of using a remote Prism Ce
 On the other hand, if you select AWS, you will need to specify the Access Key ID, the Secret Access Key, and regions that you want included.
 
 ## 16. Calm: Projects
+[YouTube Video](https://youtu.be/ilWKce3NffY)
+
 A Project is a set of users and groups with a common set of requirements or a common structure and function, such as a team of engineers collaborating on an engineering project. A Project also specifies the roles to associate with its members, networks that they can use, infrastructure to deploy onto, and (optionally) usage limits on infrastructure resources.
 
 By using different projects assigned to different clusters and users, administrators can ensure that workloads are deployed the right way each time. For example, a developer can be a Project Admin for a dev/test project, so they have full control to deploy to their development clusters or to a cloud, while having Read Only access to production projects, allowing them access to logs but no ability to alter production workloads.
