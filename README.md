@@ -1,5 +1,7 @@
-# On_Premises_Private_Cloud_Automation
+# On-Premises Private Cloud Automation
 Nutanix Private Cloud Training for SaaS 3 Tier Web Architecture - Software as a Service
+
+In this course, we will cover various tools and features that Nutanix provides to eliminate the process of manually operating infrastructure while extending up the stack to incorporate applications and maintenance operations. You will discover how Nutanix Prism Central eliminates IT intervention in performing repetitive, laborious tasks with Nutanix Calm automation to deliver simple, repeatable, and automated management of application creation, self-service consumption, and governance.
 
 ## Project - Private Cloud SaaS: Three-Tier Web Application
 In the project at the end of the On Premises Private Cloud Automation course, I will:
