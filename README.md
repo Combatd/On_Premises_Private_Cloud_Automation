@@ -938,3 +938,17 @@ Note: The HybridCloudEngineer project shown in the Projects list has the same co
 6. Click Audit to monitor the Delete process.
 
 NOTE: Make sure to delete applications when directed to do so. If left running, you will run out of cluster resources and will be unable to launch applications in future exercises.
+
+## 32. Lesson Conclusion
+[YouTube Video](https://youtu.be/tB8U2xm5P3s)
+
+In this lesson, we described a number of key features in Calm – Providers, Projects, RBAC, and the Marketplace.
+
+To quickly recap what we discussed:
+
+* Providers are cloud service providers, bare-metals, or existing machines that you can use to deploy, monitor, and govern your applications.
+* Projects specify the roles to associate with their members, networks that project members can use, infrastructure to deploy onto, and (optionally) usage limits on infrastructure resources.
+* Role-Based Access Control (RBAC) lets you define different roles in an organization and assign permissions accordingly.
+* And finally, the Marketplace is a common platform for both the publisher and the consumer, and provides you with the ability to provision an application instantly.
+
+In later lessons, we’ll walk through how these capabilities come together to allow you to automate application deployments in Calm, so your users can deploy applications with just a few clicks.
