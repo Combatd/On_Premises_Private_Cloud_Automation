@@ -782,6 +782,8 @@ In this series of exercises on this and the upcoming pages, you will:
 In each exercise, we will walk you through the steps to perform these tasks. There is also a video walkthrough on each of the following “Solution” pages.
 
 ### Creating a Calm Project
+[YouTube Video](https://youtu.be/stqznywSDd0)
+
 1. From the Prism Central browser tab, select the Entities menu (the three-lined hamburger icon, upper left) and go to Services and click Calm. If the Welcome to Calm pop-up window appears, close it.
 
 2. Hover your mouse cursor over the icons at the far left of the Calm page to see each name. Click the Projects icon.
