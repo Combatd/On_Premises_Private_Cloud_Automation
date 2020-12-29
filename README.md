@@ -1032,3 +1032,18 @@ This is why this lesson and the one after it are focused entirely on the centerp
 Then, in the next lesson, we will recap some old concepts, introduce some advanced concepts, and tie them all together with a more complex blueprint – a multi-VM blueprint for a web server using a Linux VM.
 
 So, since everything ties together to form the complete picture of application automation, before we move on, let’s quickly recap the Marketplace.
+
+## 7. Recap: The Nutanix Marketplace
+[YouTube Video](https://youtu.be/8AjFAcCb6u8)
+
+As we discussed in the previous lesson, the Marketplace allows you to:
+
+* View details of an application
+* Publish applications for use by specific users and/or groups
+* Control application state e.g. “Approved” or “Pending Approval”
+* Carry out test deployments that ensure an applications functions as expected before publication
+
+### Enabling Nutanix Marketplace Applications
+To help you get started with one-click app deployment, Calm offers a collection of pre-seeded blueprints – these are essentially ready-to-use applications that address a number of common use cases.
+
+However, by default, you will not see these applications in the Marketplace. To enable them, navigate to the Settings page in Calm, and click the Nutanix Marketplace Apps toggle.
