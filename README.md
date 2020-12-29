@@ -862,6 +862,8 @@ Note: Adding new credentials can also be done from the top of the page by clicki
 Note: The HybridCloudEngineer project shown in the Projects list has the same configuration as your Test-Project.
 
 ## Exercise - Publishing a Blueprint to the Marketplace
+[YouTube Video](Exercise - Publishing a Blueprint to the Marketplace)
+
 1. Select the Entities menu (the three-lined hamburger icon) > Services and click Calm.
 
 2. Hover your mouse cursor over the icons to the far left of the browser. Click the icon named Marketplace Manager. On the Marketplace Manager page, under the Marketplace Blueprint tab, you will find a default blueprint called ExpressLaunch.
