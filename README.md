@@ -769,3 +769,92 @@ On the Marketplace page, you need to:
 5. Click Create.
 
 You can see a walkthrough video of these steps in the solution for the upcoming exercise.
+
+## 23. Create a Calm Project
+
+### Series of Four Exercises
+In this series of exercises on this and the upcoming pages, you will:
+
+1. Create a Calm project
+2. Use the project you created to publish a default blueprint to the Calm Marketplace.
+3. Launch the blueprint from the marketplace, name the application and audit the deployment process.
+4. Delete the application.
+In each exercise, we will walk you through the steps to perform these tasks. There is also a video walkthrough on each of the following “Solution” pages.
+
+### Creating a Calm Project
+1. From the Prism Central browser tab, select the Entities menu (the three-lined hamburger icon, upper left) and go to Services and click Calm. If the Welcome to Calm pop-up window appears, close it.
+
+2. Hover your mouse cursor over the icons at the far left of the Calm page to see each name. Click the Projects icon.
+
+3. Click the + Create Project button and use the values below to complete the General Settings section.
+
+* Project Name: Test-Project
+* Description: Test workload
+
+4. To the right of Infrastructure, click Select Provider and select Nutanix:
+
+* The pre-selected account should be: NTNX_LOCAL_AZ
+* Click Select Clusters & Subnets.
+* In the Select Subnets dialog box, select your cluster.
+* Click the check box next to default-net and click Confirm.
+
+5. Use the values below to set Quotas:
+
+* vCPUs: 20
+* Storage: 1000
+* Memory: 48
+
+6. Click Save & Configure Environment.
+
+A message showing Project data successfully accepted by server briefly appears. You will be switched to the Environment page. The Environment page allows you to define the components necessary to deploy a VM.
+
+7. On the Environment page, the Linux configuration should already be expanded. Use the values below to configure the VM:
+
+* vCPUs: 1
+* Cores per vCPU: 1
+* Memory (GiB): 2
+
+8. Click the check box next to Guest Customization. In the Script field, hover your mouse cursor over the up-arrow icon in the upper right corner to reveal Upload script. Click Upload script and navigate to C:\Scripts)). Select the cloud-init.txt file and click Open**. This will upload the script to the script field:
+
+```
+ #cloud-config
+     users:
+      - name: centos
+     ssh-authorized-keys:
+ - @@{superuser.public_key}@@
+ sudo: ['ALL=(ALL) NOPASSWD:ALL']
+
+```
+
+9. Scroll down and expand the DISK (1) section to see the disk configuration. Use the information below to configure the disk:
+
+```
+Type: Disk
+Bus Type: SCSI
+Operation: Clone from Image
+Image: Select the CentOS8 image
+Bootable: Select the check box
+```
+
+10. Scroll down to NETWORK ADAPTERS (NICS) and click the plus button to the right to add a NIC. Use the table below to configure the NIC:
+```
+NIC 1: default-net
+Private IP: Select Dynamic
+```
+
+11. Scroll down to Connection. Click the Credential drop-down menu and select Add New Credential. Use the following information to configure the new credential:
+
+* Credential Name: superuser
+* Username: centos
+* Secret Type: SSH Private Key
+* SSH Private Key: In the upper right corner of the key field, click the box with the arrow, navigate to: C:\cygwin64\workspace.ssh\id_rsa and select Open. Ensure the inserted key text has -----BEGIN RSA PRIVATE KEY----- shown at the top. Click Done.
+
+Note: Adding new credentials can also be done from the top of the page by clicking the + next to Credentials.
+
+12. Ensure the box next to Check Log-in upon create is selected.
+
+13. Scroll to the bottom of the page and click Save.
+
+14. Click the Projects icon in the left column to see Test-Project in the Projects list.
+
+Note: The HybridCloudEngineer project shown in the Projects list has the same configuration as your Test-Project.
