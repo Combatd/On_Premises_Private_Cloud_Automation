@@ -728,3 +728,44 @@ For example, in the Marketplace, a user with the Developer role can clone and ed
 It’s important to note here that the four roles listed here are also roles in Prism Central, and this speaks to how tightly integrated Prism Central and Calm are. By design, Calm inherits the RBAC configuration that you define in Prism. If you assign someone the role of Project Admin in Prism Central, for example, they will have access to Project Admin permissions in Calm as well.
 
 For details about the permissions associated with each role, see the [Roles and Responsibilities](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v271:nuc-roles-responsibility-matrix-c.html) table of the Calm Admin Guide.
+
+## 21. The Nutanix Marketplace
+At the beginning of this lesson, we briefly talked about blueprints and the Marketplace. Let’s take a moment to discuss blueprints in a little more detail.
+
+A blueprint is the framework for every application that you model with Nutanix Calm. Blueprints are templates that describe all the steps that are required to provision, configure, and execute tasks on the services and applications that are created.
+
+Blueprints are essentially recipes for applications. These recipes encompass application architecture and Infrastructure choices, provisioning and deployment steps, application binaries, command steps, monitoring endpoints, remediation steps, licensing and monetization, and policies. Every time a blueprint is executed it results in an application deployment, these workloads can be managed from the Applications menu.
+
+A blueprint turns an application into a single unit that can be managed by an infrastructure team. This makes application lifecycle management and deployment both automated and repeatable, freeing up the time that infrastructure teams are presently devoting to deploying and managing infrastructure and applications.
+
+The Marketplace provides a set of pre-seeded application blueprints that are available for you to use. The Marketplace is a common platform for both the publisher and the consumer, and provides you with the ability to provision an application instantly.
+
+Generally, the Marketplace displays a collection of blueprints available to the user’s projects. You can view application details, filter and search for custom or pre-seeded blueprints, clone a blueprint, or launch a blueprint from the Marketplace.
+[Nutanix Marketplace - YouTube Video](https://youtu.be/NgEPwGe6aBk)
+
+### Filtering Blueprints
+Creating a blueprint allows you to package automation steps into one centralized package that can be reused in any locale, updated as a whole bundle, and versioned to show the full lifecycle of an application or set of applications. Blueprints in the Marketplace are sorted into categories. You can use the category drop down menu to filter blueprints and find applications in specific categories. These categories are helpful in determining the purpose of the blueprint, and narrowing down your search - making it even easier to quickly deliver value to the business.
+
+### Searching for Blueprints
+The Marketplace also includes a search bar that allows you to search for a specific set of keywords appropriate to the type of blueprint you would like to use. Unlike Categories, where you are browsing a subset of a specific type of blueprint, searching can provide a more targeted list of results that can narrow the resulting scope to exactly what you are looking for.
+
+### Cloning a Blueprint
+If you need to duplicate a blueprint and make customizations, the Marketplace allows you to clone a blueprint. All you need to do is:
+
+1. Select the Blueprint.
+2. Click Clone.
+3. Name the Blueprint.
+4. Assign it to a Project.
+
+### Launching a Marketplace Item
+Finally, you can also launch a Marketplace item to deploy the blueprint. We will cover this in more detail in a later lesson, but the basic process is quite straightforward.
+
+On the Marketplace page, you need to:
+
+1. Click the application you want to launch and then click Launch.
+2. Name the application.
+3. Select an application profile.
+4. Verify the VM Configuration and Credentials.
+5. Click Create.
+
+You can see a walkthrough video of these steps in the solution for the upcoming exercise.
