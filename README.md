@@ -977,3 +977,26 @@ We will walk through:
 * Single-VM and multi-VM blueprints
 * The various tasks involved in managing blueprints such as uploading, downloading, editing, and deleting
 * How to use the Marketplace Manager to publish, unpublish, and delete blueprints.
+
+## 2. The Importance of Calm Blueprints and Marketplace Publishing
+While we have very briefly discussed both blueprints and the Marketplace in the previous lesson, we will now explore both subjects in more detail. [YouTube Video](https://youtu.be/ZhJCtS-KMcY)
+
+Nutanix Calm, as we learned previously, is a multi-cloud application management framework. And, as we will see in this lesson, it transforms the way that enterprises work with applications.
+
+In Calm, applications are defined via simple blueprints that can be easily created using industry standard skills and control all aspects of the application’s lifecycle, such as provisioning, scaling, and cleanup. These blueprints can be created through the UI, or via code with a Python-based DSL, including seamless conversion.
+
+Once created, a blueprint can be easily published to end users through the Nutanix Marketplace, instantly transforming a complex provisioning ticket into a simple one-click request.
+
+The ability to turn applications into automated blueprints brings a number of benefits to any enterprise that uses Nutanix Calm.
+
+### Better Agility, Fewer Errors
+A blueprint incorporates relevant VMs, configurations, related binaries, and other elements of each app into a single unit that can be managed by the infrastructure team. This makes application lifecycle management and deployment both automated and repeatable, freeing up the time that infrastructure teams are presently devoting to managing their applications.
+
+### Self-service, Central Control
+As we’ve seen in the previous lessons, self-service and RBAC allow IT teams to empower different groups to provision and manage their own applications. Activities and changes are logged with end-to-end traceability, helping security teams with compliance initiatives.
+
+### Modernized App Development
+When paired with a certified Kubernetes solution, Calm allows you to modernize app development without losing policy control. In addition, Calm natively integrates with Jenkins to empower Continuous Integration and Continuous Delivery (CI/CD) pipelines with automatic infrastructure provisioning or upgrades for all applications.
+
+### Unified Multi-Cloud Orchestration
+Calm unifies the management of all your clouds into a single pane of glass, removing the need to move back and forth between multiple management interfaces. Calm automates the provisioning of multi-cloud architectures, scaling both multi-tiered and distributed applications across different cloud environments.
