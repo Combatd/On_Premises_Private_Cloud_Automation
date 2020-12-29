@@ -890,3 +890,19 @@ Note: The HybridCloudEngineer project shown in the Projects list has the same co
 5. In the Name of the Application field, type Test-App and click Create.
 
 6. When the view changes and you see PROVISIONING, click Audit. Expand the provisioning view. Continue to expand each new component as it appears to follow the provisioning progress to completion.
+
+## 29. Exercise: Deleting an Application
+
+1. Select the Entities menu > Services and click Calm.
+
+2. Hover your mouse cursor over the icons at the far left of the browser. Click the Applications icon.
+
+3. Select the checkbox next to Test-App.
+
+4. Select Delete from the Action drop-down menu.
+
+5. Click Confirm in the Delete Application dialog box.
+
+6. Click Audit to monitor the Delete process.
+
+NOTE: Make sure to delete applications when directed to do so. If left running, you will run out of cluster resources and will be unable to launch applications in future exercises.
