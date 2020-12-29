@@ -892,6 +892,8 @@ Note: The HybridCloudEngineer project shown in the Projects list has the same co
 6. When the view changes and you see PROVISIONING, click Audit. Expand the provisioning view. Continue to expand each new component as it appears to follow the provisioning progress to completion.
 
 ## 29. Exercise: Deleting an Application
+[YouTube Video](https://youtu.be/u6A-1rpDFNE)
+
 
 1. Select the Entities menu > Services and click Calm.
 
