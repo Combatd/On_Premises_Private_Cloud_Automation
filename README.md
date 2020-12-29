@@ -861,7 +861,7 @@ Note: Adding new credentials can also be done from the top of the page by clicki
 
 Note: The HybridCloudEngineer project shown in the Projects list has the same configuration as your Test-Project.
 
-## Exercise - Publishing a Blueprint to the Marketplace
+## 25. Exercise - Publishing a Blueprint to the Marketplace
 [YouTube Video](Exercise - Publishing a Blueprint to the Marketplace)
 
 1. Select the Entities menu (the three-lined hamburger icon) > Services and click Calm.
@@ -875,3 +875,17 @@ Note: The HybridCloudEngineer project shown in the Projects list has the same co
 5. In the ExpressLaunch panel, click Publish and verify that the Status column for the blueprint shows Published.
 
 6. Hover your mouse cursor over the icons to the far left of the browser. Click the Marketplace icon. You should see ExpressLaunch listed.
+
+## 27. Exercise: Launching a Blueprint from the Marketplace
+
+1.Select the Entities menu > Services and click Calm.
+
+2. Click the Marketplace icon in the left column.
+
+3. Click the ExpressLaunch blueprint and click Launch.
+
+4. Select Test-Project.
+
+5. In the Name of the Application field, type Test-App and click Create.
+
+6. When the view changes and you see PROVISIONING, click Audit. Expand the provisioning view. Continue to expand each new component as it appears to follow the provisioning progress to completion.
