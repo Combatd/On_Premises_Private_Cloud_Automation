@@ -1017,3 +1017,18 @@ You can work with teams in your organization to define specific application poli
 In addition to Calm, you can also leverage the IaaS self-service capabilities built into the Nutanix Prism management interface. You can work with each customer to define the necessary projects, quotas, and role assignments. For example, DB administrators might be allowed to deploy and manage DB instances but restricted from accessing other application services.
 
 Ultimately, Calm stands to vastly expand on the service and self-service capabilities that IT can deliver to their end users, but as you may have noticed everything begins with blueprints. So, now, let’s talk about them.
+
+## 5. Publishing Your Own Application Blueprints
+[YouTube Video](https://youtu.be/ioY3RYzI_vI)
+
+Blueprints are essentially recipes for applications. These recipes encompass application architecture and Infrastructure choices, provisioning and deployment steps, application binaries, command steps, monitoring endpoints, remediation steps, licensing and monetization, and policies. Every time a Blueprint is executed it results in an application.
+
+Calm uses Services, Packages, Substrates, Deployments, and Application Profiles as building blocks for a blueprint. Together they fully define applications. By encoding these into a blueprint, Calm can understand the application as a whole and properly automate its lifecycle.
+
+And as we discussed in the previous topic, being able to turn application deployment into an automated, repeatable activity can have a significant impact on an IT team’s productivity and efficiency.
+
+This is why this lesson and the one after it are focused entirely on the centerpiece of Calm – application blueprints. In this lesson, we will lay the foundation for everything you need to know about blueprints: key concepts, process overviews, different elements of the Calm interface, and so on. At the end of this lesson, we will bring those concepts together into an exercise to create a single-VM blueprint.
+
+Then, in the next lesson, we will recap some old concepts, introduce some advanced concepts, and tie them all together with a more complex blueprint – a multi-VM blueprint for a web server using a Linux VM.
+
+So, since everything ties together to form the complete picture of application automation, before we move on, let’s quickly recap the Marketplace.
