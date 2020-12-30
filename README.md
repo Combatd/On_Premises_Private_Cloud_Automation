@@ -1135,3 +1135,30 @@ In general, the process of setting up a single VM blueprint is similar irrespect
 
 ### Blueprint Settings
 Here, you’ll provide a name and a description for the project, and specify the project that it needs to be associated with.
+
+### VM Details
+On the VM Details page, you need to provide a name for the VM, choose the infrastructure it will run on, and specify an operating system. If you have already configured an environment as described in the previous lesson, you can simply click the Clone from environment link to duplicate your settings. That allows you to skip this step entirely, and proceed directly to the VM configuration page.
+
+### VM Configuration
+On the VM Configuration page, you will need to provide details about the VM itself, such as the number of vCPUs, cores per vCPU, memory, disks, network details, vGPUs, and so on. As you can see on the right of the screen, you will need to provide information in 7 different categories:
+
+* General configuration
+* Guest configuration
+* Disks
+* vGPUs
+* Categories
+* NICs
+* Serial ports
+
+Take note of the Categories step in this process and think back to earlier lessons where we discussed Categories in Prism Central — this is one example where you would apply any categories you may have set up at that time.
+
+### (Optional) Configure Advanced Options
+Finally, the last major task is to configure advanced options. This page allows you specify four additional areas for M provisioning:
+
+* Provide credentials: SSH keys and Passwords
+* Check the log on status of the VM after provisioning the blueprint
+* Add pre-create and post-delete tasks in the blueprint
+* Add packages and actions in the blueprint
+
+Once you have provided all of the necessary information, review your settings and click Save. You will see your blueprint listed on the Blueprints page, and can then use it to model your application.
+This is entirely optional and can be skipped if you do not have a need to update any of these settings.
