@@ -1280,3 +1280,34 @@ Creating a multi-VM blueprint is a little more involved than a single VM bluepri
 6. Creating an action
 
 Multi-VM blueprints are discussed in much more detail in the next lesson, but it’s helpful for you to have an overview of them now.
+
+## 19. Managing Blueprints
+
+There are a number of tasks that you can perform after you have a blueprint set up and saved. In no particular order, there are 10 tasks that you should be aware of in the context of managing blueprints:
+
+* Publishing blueprints
+* Launching blueprints
+* Uploading blueprints
+* Downloading blueprints
+* Configuring blueprints
+* Viewing blueprints
+* Editing blueprints
+* Deleting blueprints
+* Viewing blueprint errors
+* Recovering deleted blueprints
+
+While most of these are self-explanatory, there are a few details worth noting here. Configuring a blueprint, like most things in Calm, involves filling out a form that requires a name, a description, downloadable image configuration, and so on.
+
+### Configuring a Blueprint
+
+Viewing blueprint errors is relevant only if a blueprint has been configured incorrectly, or if an unforeseen issue occurred during development. If you receive an error when saving or publishing a blueprint, look for an exclamation mark icon in the UI, beside the undo and redo buttons. You can click the icon to view details of each error and take corrective action as needed.
+
+### Warnings shown during blueprint deployment
+
+After you configure a blueprint, you can publish, unpublish, launch, or delete it.
+
+Publishing a blueprint allows you to make the blueprint available in the Marketplace, so that other users can use it. This requires administrator approval. Unpublishing a blueprint allows you to remove the blueprint from the Marketplace.
+
+And finally, launching a blueprint allows you to deploy the application associated with the blueprint and start using it.
+
+[Blueprint Management](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v3_0_0:nuc-nucalm-blueprint-management-c.html)
