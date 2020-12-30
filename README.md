@@ -1282,6 +1282,7 @@ Creating a multi-VM blueprint is a little more involved than a single VM bluepri
 Multi-VM blueprints are discussed in much more detail in the next lesson, but it’s helpful for you to have an overview of them now.
 
 ## 19. Managing Blueprints
+[YouTube Video](https://youtu.be/I2WrDc4mVRE)
 
 There are a number of tasks that you can perform after you have a blueprint set up and saved. In no particular order, there are 10 tasks that you should be aware of in the context of managing blueprints:
 
