@@ -1261,3 +1261,22 @@ Guest Customization Script field:
 16. The Application page should now show STOPPING at the top.
 
 17. When STOPPING changes to STOPPED, go back to Entities > Infrastructure > VMs and you should see the Single-VM-BP blueprint VM in a powered off state.
+
+## 18. Multi-VM Blueprints
+[YouTube Video](https://youtu.be/cWqGfTL4tz0)
+
+A multi-VM blueprint is a framework that you can use to create an instance, provision, and launch applications that require multiple VMs. Just like single VM blueprints, you can define the underlying infrastructure of the VMs, application details, and actions that are carried out on a blueprint until the termination of the application.
+
+And, once again, you can choose which infrastructure to leverage when creating a multi-VM blueprint, with Nutanix, VMware, AWS, Azure, and GCP available as options.
+
+### Creating a Multi-VM Blueprint
+Creating a multi-VM blueprint is a little more involved than a single VM blueprint. The process involves 6 major tasks, which are:
+
+1. Adding a service
+2. Configuring the VM, package, and service for your provider
+3. Setting up service dependencies
+4. Adding and configuring an application profile
+5. (Optional) Adding and configuring scale out and scale in
+6. Creating an action
+
+Multi-VM blueprints are discussed in much more detail in the next lesson, but it’s helpful for you to have an overview of them now.
