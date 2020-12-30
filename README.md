@@ -1094,3 +1094,23 @@ Custom Service Actions (9 in the image) are created by the blueprint developer, 
 Package Install/Uninstall (10 in the image) are operations which are run during the ‘Create’ or ‘Delete’ profile actions. In other words, they are operations that run when a user first launches a blueprint, or finally deletes the entire application. Package Install and Uninstall are unique to each application profile, which means your tasks or the task contents can vary depending upon the underlying cloud or the app’s ‘t-shirt’ size.
 
 VM Pre-create/Post-delete (11 in the image) are operations which are run before the substrate is created, or after it is deleted. A common use case for this is to make an API call into an IP Address Management (IPAM) system to get an IP for a to-be-created VM. Since other operations described so far are run after the substrate has already been created, VM pre-create is necessary if a property of your substrate relies on a 3rd party system.
+
+## 11. Working with Calm Blueprints
+[YouTube Video](https://youtu.be/JkJebVRaPEY)
+
+Now we’re going to focus on creating blueprints themselves. Whenever you need to work with Blueprints, you’ll need to navigate to the Blueprints page of Calm
+
+### Blueprints Page of Calm
+As you can see, the options available to you are very similar to those that you’ll see on other pages in Calm. You can create, upload, filter, launch, download, delete, and clone blueprints from this page.
+
+You’ll also see a table in the middle of the page that lists every available blueprint, as well as some basic information: the type, a description, the project it’s associated with, and so on. You can click the name of a blueprint to open the Blueprint Canvas screen, pictured below
+
+The Blueprint Canvas screen is a complete view of your blueprint, consisting of all of the elements that we talked about earlier. Here, you can modify the configuration of a blueprint, publish, download, or launch it.
+
+### Creating a Blueprint
+Based on the type of application you intend to deploy, you will find yourself creating one of two different types of blueprints: single VM or multi-VM. And to create a blueprint, you simply need to click + Create Blueprint on the Blueprints page. There, you will see two options:
+
+* Single VM Blueprint
+* Multi-VM/Pod Blueprint
+
+In this lesson, we will spend some time on single VM blueprints and follow up with an exercise that will allow you to create one. In the next lesson, we will look at multi-VM blueprints in detail.
