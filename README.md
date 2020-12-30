@@ -1162,3 +1162,98 @@ Finally, the last major task is to configure advanced options. This page allows 
 
 Once you have provided all of the necessary information, review your settings and click Save. You will see your blueprint listed on the Blueprints page, and can then use it to model your application.
 This is entirely optional and can be skipped if you do not have a need to update any of these settings.
+
+## 16. Exercise - Create Single VM Blueprint
+In this exercise, you will create a single VM blueprint and then download and launch the blueprint.
+
+### Creating a Single VM Blueprint
+1. From the Prism Central tab in your browser, select the Entities menu > Services and click Calm.
+
+2. Hover your mouse cursor over the icons at the far left of the browser to reveal the icon names. Click the Blueprints icon.
+
+3. Click the + Create Blueprint drop-down menu and select Single VM Blueprint.
+
+4. On the Create Single VM Blueprint page, use the following information to complete the fields:
+
+* Name: Single-VM-BP
+* Description: Single VM test for Calm
+* Project: HybridCloudEngineer
+
+5. Click VM Details >. Verify the following fields are set as defined below:
+
+* Name: VM1
+* Cloud: Nutanix
+* Operating System: Linux
+
+6. Directly below the Operating System field showing Linux, locate Clone from environment. Clicking this will clone/copy the VM configuration from the Environments section of the HybridCloudEngineer project to your VM configuration in this blueprint. The HybridCloudEngineer project VM configuration is the same as the Test-Project project you built in a previous exercise. Click Clone from environment.
+
+7. The HybridCloudEngineer project environment VM configuration has now been copied to this blueprint. Click VM Configuration > and verify the VM settings using the following information:
+
+* vCPUs: 1
+* Cores per vCPU: 1
+* Memory (GiB): 2
+
+Guest Customization Script field:
+
+#cloud-config users:
+
+* name: @@{superuser.username}@@ ssh-authorized-keys:
+* @@{superuser.public_key}@@ sudo: ['ALL=(ALL) NOPASSWD:ALL']
+* Type: Disk
+* Bus Type: SCSI
+* Operation: Clone from Image Service
+* Image: CentOS-8-GenericCloud-8.2.2004-20200611.2.x86_64.qcow2
+* Bootable: Check box selected
+* NIC 1: default-net
+
+8. Some settings are left to the administrators discretion as the settings may be unique to the deployment environment. Click the radio button next to Dynamic in the NIC 1 section for default-net.
+
+9. Click Advanced Options at the bottom of the page. Scroll to the top of the display, click Add/Edit Credentials.
+
+10. In the Credentials dialog box, click + Add Credentials. Use the following information to configure the new credential:
+
+* Credential Name: superuser
+* Username: centos
+* Secret Type: SSH Private Key
+* SSH Private Key: Click the arrow coming out of the box, navigate to C:\cygwin64\workspace.ssh\id_rsa and select Open. Ensure the inserted key text has the private key, -----BEGIN RSA PRIVATE KEY----- shown at the top.
+
+11. Click Done.
+
+12. Under CONNECTIONS, click the check box next to, Check log-in upon create and choose superuser from the Credentials pull-down menu.
+
+13. Scroll to the bottom of the page and click Save.
+
+### Downloading and Launching the Blueprint
+1. Select the Entities menu > Services and click Calm.
+
+2. Hover your mouse cursor over the icons at the far left of the browser. Click the Blueprints icon, second from the top.
+
+3. Click your Single-VM-BP blueprint then click Download at the upper right.
+
+4. In the Download Blueprint dialog box, click the check box for Do you want to include credentials and secrets in the blueprint.
+
+5. Type nutanix/4u in the Enter Passphrase box and click Continue to save the file.
+
+6. Open Windows Explorer / File Manager on your Desktop task bar and open the Downloads folder. Copy the Single-VM-BP JSON file to the Workspace folder on the Windows Desktop to make it persistent.
+
+7. Download all the files in your Workspace folder to your personal computer by right-clicking each file and choosing Download with Frame. This will save your files to your local systems default downloads folder. Be sure to get your SSH Keys in the .ssh folder.
+
+8. From the Calm blueprint page, click Launch at the upper right. In the new view, you will see three tabs, with the Profile Configuration automatically selected. Type Single-VM-App in the Name of the Application field.
+
+9. Click Create.
+
+10. When the view changes and you see PROVISIONING, click Audit. Expand the provisioning view by clicking the turndown arrow to the left of Create. Continue to expand each new component as it appears, to follow the provisioning progress to completion.
+
+11. Verify that Calm was able to log into the VM during the post-provisioning steps by confirming a Green circle around the Service1 - Check Login step, under the Service1 - Substrate Create tree.
+
+12. Once the application is in a RUNNING state, click the Entities menu and go to Infrastructure > VMs. You will see your **Single-VM-BP” blueprint VM running.
+
+13. Return to Entities > Services > Calm > Applications > Single-VM-App. Select the Manage tab.
+
+14. Hover your cursor over the Stop row and click the arrow.
+
+15. In the Run Action: Stop dialog box, click Run to confirm stopping the VM.
+
+16. The Application page should now show STOPPING at the top.
+
+17. When STOPPING changes to STOPPED, go back to Entities > Infrastructure > VMs and you should see the Single-VM-BP blueprint VM in a powered off state.
