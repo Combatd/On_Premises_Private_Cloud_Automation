@@ -1312,3 +1312,42 @@ Publishing a blueprint allows you to make the blueprint available in the Marketp
 And finally, launching a blueprint allows you to deploy the application associated with the blueprint and start using it.
 
 [Blueprint Management](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v3_0_0:nuc-nucalm-blueprint-management-c.html)
+
+## Working with Marketplace Manager
+[YouTube Video](https://youtu.be/YQ-1RjGyBvE)
+
+The last major topic that we’re going to discuss in this lesson is working with the Marketplace Manager. Like the Marketplace itself, the Marketplace Manager has its own page in Calm.
+
+It allows you to manage the list of custom blueprints and the marketplace application blueprints. You can view the list of published blueprints under the Marketplace Blueprints tab and the list of blueprints that are pending for approval under the Approval Pending tab. The Marketplace Manager page provides the following details about a blueprint:
+
+* Name of the blueprint
+* Name of the entity who created the blueprint
+* The number of projects for which the blueprint is available
+* The category of the blueprint
+* Status of the blueprint
+
+After you select a blueprint, the inspector panel displays the operations you can perform on the selected blueprint. The inspector panel also displays a brief overview of the blueprint and allows you to select the category and projects for the available blueprint.
+
+Broadly, there are three operations that you are likely to perform on the Marketplace Manager page: publishing a blueprint, unpublishing a blueprint, and deleting an unpublished blueprint.
+
+### Publishing a Blueprint
+It’s worth noting that, if your blueprint is properly set up, publishing, unpublishing and deleting don’t involve more than one or two clicks. To publish a blueprint, for example, you simply need to:
+
+Navigate to the Approval Pending tab
+1. Select an unpublished blueprint from the list
+2. Click Approve
+3. Assign the blueprint to a Category
+4. Click Publish
+
+### Unpublishing a Blueprint
+Unpublishing a blueprint removes it from the Marketplace, but does not delete the blueprint itself. It can also be republished if there is a need.
+
+To unpublish a blueprint:
+
+1. On the Marketplace Blueprints tab, select a blueprint from the list
+2. Click Unpublish
+
+### Deleting a Blueprint
+Deleting a blueprint removes the blueprint itself, and the operation can only be performed on an unpublished blueprint. As you can see in the previous figure, you can only unpublish or launch a published blueprint.
+
+However, with an unpublished blueprint, as shown in the figure below, you will see options to either publish the blueprint or delete it. Simply click the Delete button to remove the blueprint.
