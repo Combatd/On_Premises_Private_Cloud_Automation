@@ -1114,3 +1114,24 @@ Based on the type of application you intend to deploy, you will find yourself cr
 * Multi-VM/Pod Blueprint
 
 In this lesson, we will spend some time on single VM blueprints and follow up with an exercise that will allow you to create one. In the next lesson, we will look at multi-VM blueprints in detail.
+
+## 14. Single VM Blueprints
+[YouTube Video](https://youtu.be/Sq4qanmUTNc)
+Like the name suggests, a single VM blueprint is a framework that you can use to create an instance, provision, and launch applications that require only a single VM. You can define the underlying infrastructure of the VM, application details, and actions that are carried out on a blueprint until the termination of the application.
+
+### Types of Single VM Blueprints
+The choices that you have when setting up your Providers extend to creating blueprints as well. You can create a single VM blueprint for Nutanix, VMware, AWS, Azure, and GCP.
+
+### Demo: UI for Single VM Blueprints
+Let’s walk you through the user interface for some of the creation steps.
+[YouTube Walkthrough](https://youtu.be/gcToVM6H9ms)
+
+In general, the process of setting up a single VM blueprint is similar irrespective of the infrastructure you choose to use. While details may vary, as we saw when creating Providers, there are four broad tasks involved in creating a single VM blueprint:
+
+1. Updating blueprint settings
+2. Providing VM details
+3. Specifying VM configuration
+4. (Optional) Configuring advanced options
+
+### Blueprint Settings
+Here, you’ll provide a name and a description for the project, and specify the project that it needs to be associated with.
