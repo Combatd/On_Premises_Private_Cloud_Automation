@@ -1167,6 +1167,8 @@ This is entirely optional and can be skipped if you do not have a need to update
 In this exercise, you will create a single VM blueprint and then download and launch the blueprint.
 
 ### Creating a Single VM Blueprint
+[YouTube Video](https://youtu.be/qrOpxr4MgV4)
+
 1. From the Prism Central tab in your browser, select the Entities menu > Services and click Calm.
 
 2. Hover your mouse cursor over the icons at the far left of the browser to reveal the icon names. Click the Blueprints icon.
@@ -1224,6 +1226,8 @@ Guest Customization Script field:
 13. Scroll to the bottom of the page and click Save.
 
 ### Downloading and Launching the Blueprint
+[YouTube Video](https://youtu.be/fu10nUn0yzI)
+
 1. Select the Entities menu > Services and click Calm.
 
 2. Hover your mouse cursor over the icons at the far left of the browser. Click the Blueprints icon, second from the top.
