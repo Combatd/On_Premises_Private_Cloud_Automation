@@ -1355,10 +1355,11 @@ However, with an unpublished blueprint, as shown in the figure below, you will s
 ## 24. Exercise: Publish Blueprint to Marketplace
 In this exercise, you will:
 
-* Publish your single VM blueprint to the marketplace.
-* Launch your blueprint from the marketplace.
-* Unpublish and delete your blueprint.
-* We’ll walk through the steps together.
+* Publish your single VM blueprint to the marketplace. [YouTube Video](https://youtu.be/_7rl8c0Us4A)
+* Launch your blueprint from the marketplace. [YouTube Video](https://youtu.be/Vz4PzWdZQ_A)
+* Unpublish and delete your blueprint. [YouTube Video](https://youtu.be/PjIUOcXHwfI)
+
+We’ll walk through the steps together.
 
 ### Publishing a Single VM Blueprint to the Marketplace
 1. On the Prism Central tab in your browser, select the Entities menu, then Services and click Calm.
