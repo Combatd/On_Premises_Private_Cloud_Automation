@@ -1351,3 +1351,92 @@ To unpublish a blueprint:
 Deleting a blueprint removes the blueprint itself, and the operation can only be performed on an unpublished blueprint. As you can see in the previous figure, you can only unpublish or launch a published blueprint.
 
 However, with an unpublished blueprint, as shown in the figure below, you will see options to either publish the blueprint or delete it. Simply click the Delete button to remove the blueprint.
+
+## 24. Exercise: Publish Blueprint to Marketplace
+In this exercise, you will:
+
+* Publish your single VM blueprint to the marketplace.
+* Launch your blueprint from the marketplace.
+* Unpublish and delete your blueprint.
+* We’ll walk through the steps together.
+
+### Publishing a Single VM Blueprint to the Marketplace
+1. On the Prism Central tab in your browser, select the Entities menu, then Services and click Calm.
+
+2. Select the Blueprints icon.
+
+3. If Single-VM-BP is present, click on the blueprint and skip to step 8. If the blueprint is not present, this means you received a new cluster deployment and will need to upload your saved blueprint. Continue with the following steps.
+
+4. Click Upload Blueprint and browse to the Workspace folder on your desktop and select your saved Single-VM-BP JSON file. Click Open.
+
+5. In the Upload Blueprint dialog box, select HybridCloudEngineer in the Project pull-down menu and type nutanix/4u in the Passphrase field. Click Upload. This will place you into the Single-VM-BP blueprint you created and saved in a previous exercise.
+
+6. Click VM Details and in the VM Details page, click VM Configuration.
+
+7. From the VM Configuration page, locate the NICs section and under NIC1, Private IP, click the Dynamic radio button. Click Save.
+
+8. On your Single-VM-BP blueprint page, click Publish in the upper right corner of the browser window.
+
+9. In the Publish Blueprint dialog box, verify Publish as a, is set to New Marketplace Blueprint and type 1.0.0 in the Initial Version field.
+
+The name should default to Single-VM-BPand the Description should default to Single VM test for Calm.
+
+10. Click Submit for Approval.
+
+11. Hover your cursor over the icons to the far left of the browser. Click Marketplace Manager icon (second icon from the bottom).
+
+12. At the top, click the Approval Pending tab and click Single-VM-BP. A panel will appear on the right-side of the browser window.
+
+13. Select HybridCloudEngineer in the Project Shared With drop-down menu.
+
+14. Click the Approve button (box with a checkmark). The blueprint will be removed from the Approval Pending tab and placed in the Marketplace Blueprints tab.
+
+15. At the top, click the Marketplace Blueprints tab. If you do not see your Single-VM-BP blueprint in the list, enter *single in the search field and press Enter. Select the checkbox next to the Single-VM-BP blueprint. Observe the current status of your blueprint, which should be Accepted**.
+
+16. On the right-side of the browser window, verify HybridCloudEngineer is selected in the Projects Shared With drop-down menu and click Publish.
+
+17. The blueprint Status column should now read Published.
+
+### Launching a Blueprint from the Marketplace
+1. Select the Entities menu, then Services and click Calm.
+
+2. Click the Marketplace icon in the left column.
+
+3. Click Single-VM-BP blueprint and click Launch.
+
+4. In the Launch dialog box, select the HybridCloudEngineer project if needed and click Launch if needed.
+
+5. Type Single-MP-App (MP=Marketplace) in the Name of the Application field and click Create.
+
+6. When the view changes and you see PROVISIONING, click Audit. Expand the provisioning view. Continue to expand each new component as it appears, to follow the provisioning progress to completion.
+
+7. Verify that Calm can login to the VM during the post-provisioning steps by confirming a Green circle around the Check Login step, under the Service1 - Substrate Create tree.
+
+8. Go to Entities > Infrastructure > VMs and verify your VMs. You should see the VM from the Single-VM-App application launched in an earlier exercise, in a powered off state and the VM launched with the Single-MP-App application, in a powered on state.
+
+### Deleting and Unpublishing a Blueprint
+1. Go to Entities > Infrastructure > VMs and review the current VMs.
+
+2. Return to Entities > Services and click Calm.
+
+3. You should be on the Application page (default) and you should see the Single-VM-App and Single-MP-App applications listed.
+
+4. Select the Single-MP-App check box.
+
+5. Select Delete from the Action drop-down menu.
+
+6. Click Confirm in the Delete Application dialog box.
+
+7. You will be automatically switched to the Audit page. Monitor the delete process.
+
+8. In the left column, click the Applications icon. Repeat steps 3-6 for Single-VM-App.
+
+9. Click the Marketplace Manager icon on the left-side of your browser window (second from bottom) and enter single in the search field. Press Enter. Select the Single-VM-BP blueprint and in the right side panel, click Unpublish.
+
+The Status of the Single-VM-BP will change to Accepted.
+
+10. Click the trash can icon and click Delete in the Confirm Delete dialog box.
+
+11. Click the Blueprints icon on the far left of the browser and click the check box next to Single-VM-BP blueprint.
+
+12. Select Delete from the Action drop-down menu and click Delete in the Confirm Delete dialog box.
