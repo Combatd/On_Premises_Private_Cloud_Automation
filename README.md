@@ -1530,3 +1530,15 @@ By the end of this lesson, you will be able to perform blueprint lifecycle manag
 In addition, we will give you an overview of the LAMP stack, the foundation on which we will build our web application. We’ll cover load balancer design with a scaling web service tier to address our “two tier” web application’s high availability and performance.
 
 Let’s get started!
+
+## 2. Calm Blueprint Lifecycle: Cloning a Blueprint
+[YouTube Video](https://youtu.be/xHm4v2NH-vk)
+
+This is a topic we’ve discussed earlier in the context of the Calm Marketplace. As you may remember, it’s a very straightforward process which you can complete with a couple of clicks.
+
+You can clone an application blueprint from a pre-seeded application blueprint. Cloning a blueprint is a simple process.
+
+1. From the Marketplace, click the application blueprint you want to clone.
+2. Click Clone.
+3. Enter a name and select the project that you want to assign it to.
+4. Click Clone again.
