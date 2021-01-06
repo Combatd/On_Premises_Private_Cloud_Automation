@@ -1614,3 +1614,78 @@ Under the Nutanix tab:
 3. Provide VM configuration details such as name, image, firmware, vCPU, device bus, memory, etc.
 4. Confirm whether or not to check log on status after the VM is created.
 5. Specify the connection type and port.
+
+## 10. Calm Macros
+[YouTube Video](https://youtu.be/QK2boq2Tl_k)
+
+Before we talk about macros, it is important to understand variables.
+
+The properties such as IP addresses, DNS names, and instance IDs that are associated with the services provisioned in blueprints are called variables. They can be static, provided at run time, or generated during blueprint or action runs. Variables can have various data types (strings, integers, dates, or times) and various inputs (generated using single value, single input arrays, multiple input arrays, or an API call), and can be validated through regular expressions (regex).
+
+### Macros Overview
+Macros enable you to access the value of variables and properties set on entities, and help you make generic scripts and create reusable workflows.
+
+For instance, a web server install script could use a macro to reference the IP address of a database. At deployment, the system replaces the macro with the actual IP address. Macros begin with “@@{“ and end with “}@@”.
+
+The syntax of a macro is "@@{variable_name}@@", where "variable_name" is the name of the variable.
+
+The syntax to access the value of variables or properties of other entities or dependencies is "@@{.<variable/attribute name>}@@".
+
+* "entity name" is the name of the other entity or dependency
+* "variable/attribute" name is the name of the variable or attribute.
+
+For example, if a blueprint contains a service by the name of app_container, you can access the IP address of the app_container service in any other service using "@@{app_container.address}@@" syntax.
+
+Calm macros are part of a templating language for Calm scripts. These are evaluated by Calm's execution engine before the script is run.
+
+Let’s further explore the supported entities, types of variables, access credentials as macros, access macros of an array service, and a lot more.
+
+### Supported Entities
+Entities supported by macros include:
+
+* Application
+* Service
+* Package
+* Virtual machine
+
+### Types of Variables
+There are two types of variables:
+
+* User-defined
+* Built-in.
+
+There are various built-in macros available for use based on different providers. Refer to the links below to view a list of built-in variables for the following providers.
+
+* Nutanix variables
+* AWS Variables
+* GCP Variables
+* Azure Variables
+* Kuberenetes Variables
+* VMware Variables
+
+### Credentials as Macros
+You can also access credentials as macros. The format to access credential is:
+
+"@@{cred_name.username}@@" and "@@{cred_name.secret}@@" "cred_name": Name of the credential with which the cred is created.
+
+### Access Macros of an Array Service
+Nutanix Calm allows you to access macros of an array service using a special macro, which starts with "calm_array". You can configure a VM with replicas and access the common macros of all the replicas.
+
+Let’s look at some of the examples:
+
+* Use the following macro to retrieve the name of all the instances of VM separated by commas. "@@{calm_array_name}@@"
+* Use the following syntax to retrieve the IP address of all the instances of VM separated by commas. "@@{calm_array_address}@@"
+* Use the following syntax to retrieve the ID of all the instances of VM separated by commas. "@@{calm_array_id}@@"
+
+### Supported Data Types
+Macro supports string and numbers data types. You can use them in the following format:
+
+* String: "@@{"some string"}@@" or "@@{'some string'}@@" Newline or other such special characters are not supported. You can use \ to escape quotes.
+* Numbers: Supports integer and float. For example, "@@{ 10 + 20.63 }@@"
+
+### Supported Operations
+Following are the supported macro operations:
+
+* Basic binary operations or numbers. For example, "@@{(2 * calm_int(variable1) + 10 ) / 32 }@@".
+* String concatenation. For example, "@@{ foo + bar }@@".
+* Slicing for strings. For example, "@@{foo[3:6]}@@".
