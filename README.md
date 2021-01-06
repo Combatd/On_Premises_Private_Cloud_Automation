@@ -1747,3 +1747,27 @@ For example, you may have developer teams based in Asia, Europe, and the America
 A “development” application profile variables may be set for username = development and password = development_password, while an application profile named “staging” could set the same variables to different values for username = staging and password = staging_password. or Limited to full configuration delegation with run-time property overrides.
 
 * Any combination of the above: a hypothetical “Asia Development” application profile could incorporate all of these elements and more, such as: small capacity size, private cloud provider, located in Asia, and a development environment database variables, including allowing run-time override for any of the properties if desired.
+
+## 14. Calm Actions
+* [YouTube Video](https://youtu.be/wH_szTPOROc)
+* [Action Overview](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v3_0_0:nuc-nucalm-components-layer-action-c.html)
+
+Now that we have covered Application Profiles, let’s next learn about application profile actions. An application profile consists of several actions.
+
+Application Profile Actions, or Profile Actions, in short, are a set of operations that you can run on your application. For example, when launching a blueprint, the ‘Create’ action is run. If your application is not needed for a period of time, you could then run the ‘Stop’ action to gracefully stop your application. When you’re ready to resume work, running the ‘Start’ action will bring the app back up.
+
+The default application profile also contains several actions, which appear as gray ovals on a service. Actions consist of one or more tasks. Tasks are executed sequentially on each service. The types of tasks are Execute, Set Variable, HTTP, and Delay.
+
+All services execute their actions and tasks in parallel unless a dependency is created to control orchestration, allowing operational control across the entire application.
+
+Let's review the simplest life cycle actions for IaaS.
+
+### Create and Delete
+Create: This action is invoked upon a blueprint launch and covers all services to allow orchestration. It provisions and configures the service in the provider.
+
+Delete: This action deprovisions the services with the provider.
+
+### Start, Stop, and Restart
+These actions are available to operate the entire deployment. But in the simplest blueprints, these typically remain empty until populated with tasks. In addition, when the create action is complete, it will immediately call the start action on each service.
+
+Correspondingly, the delete action will call and complete the stop action before performing its tasks on each service.
