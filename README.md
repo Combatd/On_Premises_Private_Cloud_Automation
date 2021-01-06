@@ -1559,3 +1559,18 @@ To download a blueprint:
 5. Click Continue.
 
 You can also perform the same operation by selecting the blueprint and clicking the Download option under the Actions dropdown.
+
+## 6. Calm Blueprint Lifecycle: Uploading a Blueprint
+[YouTube Video](https://youtu.be/-Ed3mod0W0g)
+
+Much like the ability to download a blueprint, the ability to upload one is also one of the eleven blueprint management tasks that we briefly discussed in Lesson 3.
+
+You can also upload configured blueprints to the Blueprints tab. To do that:
+
+1. Click the Blueprint icon.
+2. Click Upload Blueprint.
+3. Browse and select the saved blueprint.
+4. Give the blueprint a name and select the project you want to assign it to.
+5. Click Upload.
+
+If you have previously downloaded the blueprint with credentials and secrets, then during upload you must provide the same password as previously specified.
