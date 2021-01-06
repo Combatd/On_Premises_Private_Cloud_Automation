@@ -1542,3 +1542,20 @@ You can clone an application blueprint from a pre-seeded application blueprint. 
 2. Click Clone.
 3. Enter a name and select the project that you want to assign it to.
 4. Click Clone again.
+
+## 4. Calm Blueprint Lifecycle: Downloading a Blueprint
+[YouTube Video](https://youtu.be/85r6DHQGrUI)
+
+The ability to download a blueprint is one of the many blueprint management tasks that we talked about in the previous lesson. And while we went over them at a very high level, it’s worth taking a few moments to go into a little more detail on some of those tasks here.
+
+You can download a configured blueprint to your local machine for later use. You also have the option to download the blueprint with the credentials and secrets used in the blueprint.
+
+To download a blueprint:
+
+1. Click the blueprint icon.
+2. Click the blueprint that you want to download.
+3. Click Download.
+4. Select the check box, if you want to include credentials and secrets and type a password.
+5. Click Continue.
+
+You can also perform the same operation by selecting the blueprint and clicking the Download option under the Actions dropdown.
