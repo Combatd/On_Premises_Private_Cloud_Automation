@@ -1574,3 +1574,43 @@ You can also upload configured blueprints to the Blueprints tab. To do that:
 5. Click Upload.
 
 If you have previously downloaded the blueprint with credentials and secrets, then during upload you must provide the same password as previously specified.
+
+## 8. Calm Services and Substrates
+[YouTube Video](https://youtu.be/c59QVL__-8I)
+
+We’ve covered some of the tasks involved in managing the blueprint lifecycle. We will next discuss all of the necessary topics to understand the creation of a multi-VM blueprint. Services, substrates, application profile, and actions are primary elements required to create a multi-VM blueprint.
+
+In this section, we will dive into the process of configuring the substrates, and also discuss its importance. Before that, let’s do a quick recap of services and substrates.
+
+### Services Overview
+Services are logical entities exposed by an IP that span all application profiles and are managed by Calm. End users and services communicate with each other over a network using their exposed IPs and ports.
+
+### Configuring Substrates
+Substrates are combinations of the underlying cloud and the VM instance. When you select the desired cloud in the Calm UI, all the fields required to create a VM instance on that particular cloud are displayed. The combination of these fields is a substrate.
+
+The substrate or VM details are configured in the environment.
+
+The environment depends on the cloud provider selected during the project creation process. The environment consists of the cloud provider and the operating system details. For example, if you choose Nutanix as the provider. You have two options, Nutanix+Linux and Nutanix+Windows.
+
+Calm supports Nutanix AHV, Nutanix Xi Cloud, AWS, VMware, GCP, and Azure as providers for your project. For simplicity, we will be covering the process to configure a Nutanix AHV environment.
+
+### Configuring a Nutanix Environment
+The Environment allows you to add multiple credentials and configure VM details for the selected provider. You can configure an environment when creating a project.
+
+If you have configured the environment when creating a project, you can use the configured details while creating a blueprint or launching an application from the marketplace.
+
+Environment is mandatory to publish the applications into the marketplace. If you do not define VM configuration while creating a blueprint, you must define the configuration as part of the environment. Also, during the application blueprint launch from the marketplace, the values are picked from the environment.
+
+Before configuring a Nutanix environment, ensure that you have configured a project with Nutanix as a provider.
+
+To configure the environment for Nutanix:
+
+In the Create Project page, Under the environments tab, select Nutanix.
+
+Under the Nutanix tab:
+
+1. Enter credential details. Nutanix supports both password based and SSH private key based secret type.
+2. Select the operating system type.
+3. Provide VM configuration details such as name, image, firmware, vCPU, device bus, memory, etc.
+4. Confirm whether or not to check log on status after the VM is created.
+5. Specify the connection type and port.
