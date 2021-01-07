@@ -257,3 +257,22 @@ Delete: This action deprovisions the services with the provider.
 These actions are available to operate the entire deployment. But in the simplest blueprints, these typically remain empty until populated with tasks. In addition, when the create action is complete, it will immediately call the start action on each service.
 
 Correspondingly, the delete action will call and complete the stop action before performing its tasks on each service.
+
+## 16. Calm Library Overview
+[YouTube Video](https://youtu.be/KO-P1hUpuc4)
+
+We covered tasks and variables in the previous sections. Let’s see how these can be reused when configuring an application blueprint.
+
+Calm Library allows you to save user-defined tasks (scripts) and variables that can be used by other application blueprints. By using existing user-defined tasks and variables, you do not have to define the same tasks and variables again. You can share tasks and variables listed as part of the library across different projects. You can also customize an existing task or variable.
+
+### Variable Types Overview
+Users can create custom variable types for added flexibility and utility. Beyond just string and integer data types, you can create more data types such as Date/Time, list, and multi-line string. List values can be defined as a static list of values or attach a script (eScript or HTTP task) to retrieve the values dynamically at runtime.
+
+While creating a custom variable type, you are required to select a project. However, you can share the variable type with multiple other projects using the "Share" option on the same page.
+
+### Calm Library Overview
+You can create tasks while configuring a blueprint and publish these tasks to the library. Nutanix Calm allows you to import these published tasks while configuring other blueprints across multiple projects.
+
+Tasks can be browsed and loaded from or saved to the library, to promote reuse across blueprints. Tasks from the library are copied into a blueprint. They do not update when the library changes, which keeps the blueprints safe.
+
+[YouTube Video](https://youtu.be/PFZmmhJ49xg)
