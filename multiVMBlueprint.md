@@ -322,3 +322,67 @@ PHP was created in 1994 by Rasmus Lerdorf, who wrote a number of common gateway 
 
 PHP is a general purpose scripting language that is especially useful for web development, and is also used as a general purpose programming language. PHP code is interpreted by a web server via a PHP processor module, which generates the resulting web page.
 
+## 20. Linux Administration
+[YouTube Video](https://youtu.be/Y-Qs8fS-PlY)
+
+### Linux Administration Overview
+If you’ve never administered Linux, here is a quick overview with some tips on how to manage a system to give you some familiarity with Linux environments. You’ll see that we leverage this knowledge to automate VM operations.
+
+Every user on a Linux system has an account and programs will execute and run under their account name. Programs have file permissions for user ownership and access; they run under your user account.
+
+Remote access to a Linux VM can be accomplished with command line access via SSH. You will use your SSH key to login to a user account on the Linux system. Since we will be creating new VMs from scratch, we'll usually access ephemeral Linux VMs by IP address.
+
+System maintenance requires programs to be run by an administrative user. The administrative account is called the superuser, so administrative tools often start with su. The first administrative account on every Linux system is user root, but for security purposes, root logins are blocked from SSH access.
+
+Therefore, user accounts can be added to the sudo-ers list to be allowed access to administrative tools. This enables user accounts to preface sudo before any command or program, granting superuser access.
+
+To tie this altogether, you will see us add new user accounts with SSH key credentials and sudo permissions in cloud-init!
+
+### Linux Administration Tips
+Because Linux derives from Unix, it shares a history and terminology going back to 1971. There can be many interchangeable terms that are synonyms which can confuse new learners, but the following tips will help you.
+
+Case matters, but everything on Linux defaults to use lower-case letters.
+
+Programs are installed by package managers, so application, package, command, and program are roughly equivalent. A whole class of programs provide advanced Internet server functionality on top of an operating system, so synonyms exist for the class of application infrastructure packages: server, service, daemon, facility, and sometimes listener.
+
+We will use the following Internet services for the three tier web application:
+
+* mysqld (MySQL daemon)
+* httpd (Apache daemon)
+* sshd (SSH daemon)
+
+You will see frequent use of sudo on these server facilities in the automation shell scripts. They will use sudo to execute installation, configuration, and operations of the HAProxy load balancer, Apache web server, and MySQL database.
+
+If you ever wonder what a command is or how to use it, you can learn detailed technical usage on most facilities by prefixing man on the program, which is an abbreviation for manual page. E.g.: man httpd
+
+### CentOS and Red Hat Linux Administration
+If you’ve never used a recent CentOS or Red Hat Linux distribution, there are some very basic administrative patterns you should learn. We will use the same release of CentOS and Red Hat in order to keep parity for administrative programs and operations, but there can always be subtle to major differences between Linux distributions and even different releases of the same distribution!
+
+For Firewall and security group access, the SSH service resides on TCP port 22.
+
+Package management uses the command: yum
+
+* ```sudo yum install -y haproxy```
+
+Operations of the load balancer, web server, and database use: systemctl
+
+* ```sudo systemctl start haproxy```
+
+The standard journal log viewer is: journalctl
+
+* ```sudo journalctl -u mysqld``` Note that you can use journalctl -f to keep watching log updates, use Control+C to cancel and return to the command prompt.
+
+Configuration files reside under the /etc/ directory.
+
+Troubleshooting any logs you can’t find with with journalctl mostly reside under /var/log/ directory. The following are important examples to help you understand the essential facilities of SSH and cloud-init:
+
+* /var/log/messages
+  * for general Linux system operation messages
+* /var/log/secure
+  * for SSH login information
+* /var/log/cloud-init.log and /var/log/cloud-init-output.log
+  * for cloud-init troubleshooting
+  
+One of the benefits of many Linux distributions is that most of the standards outlined above are upheld. When administering Internet services, you will use the above commands and directory locations!
+
+[Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/)
