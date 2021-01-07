@@ -386,3 +386,32 @@ Troubleshooting any logs you can’t find with with journalctl mostly reside und
 One of the benefits of many Linux distributions is that most of the standards outlined above are upheld. When administering Internet services, you will use the above commands and directory locations!
 
 [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/)
+
+## 21. Web Server Administration
+[YouTube Video](https://youtu.be/7AyzB4f-RwY)
+
+### Apache Web Server Administration
+The Apache web server has a standard install and maintenance cycle using:
+
+```sudo yum install -y httpd```
+```sudo systemctl {enable,start,status,stop,restart} httpd```
+
+Firewall and security group access details:
+
+* http is TCP port 80
+* https is TCP port 443 (outside of the scope of our course)
+
+Configuration files are under the /etc/httpd/ directory and the web document root where programs and web pages reside in the /var/www/html/ directory.
+
+Troubleshooting logs:
+
+* ```sudo journalctl -u httpd```
+* ```tail /etc/httpd/logs/\*.log```
+
+Further reference: Apache HTTP Server Project: Documentation
+
+* Apache version: ```httpd -v```
+
+Tip: Although httpd started the project, the Apache project has grown to a large open source organization for many software projects, so the term is used for both the httpd web server and the umbrella parent organization.
+
+Humor: Apache was named after "a patchy server" to indicate the project’s early days of software development.
