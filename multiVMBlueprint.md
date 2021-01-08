@@ -783,3 +783,135 @@ Click Save.
 Select Download to save your blueprint to your Frame workstation. Check the box for Downloading credentials and type the passphrase nutanix/4u.
 
 Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Save only the most recent copy!
+
+## 28. Exercise: Add Load Balancer Service
+### Exercise: HAProxy Configuration
+Now let’s walk through the steps to configure a load balancer to depend on a web server service in a two-tier web application.
+
+1. Select the Entities menu > Services and click Calm.
+
+2. Select the Blueprints icon in the left column.
+
+3. If WebApplication is present, click on the blueprint and skip to step 7. If the blueprint is not present, this means you received a new cluster deployment and will need to upload your saved blueprint. Continue with the following steps.
+
+4. Click Upload Blueprint and browse to the Workspace folder on your desktop and select your saved WebApplication JSON file. Click Open.
+
+5. In the Upload Blueprint dialog box, select HybridCloudEngineer in the Project pull-down menu and type nutanix/4u in the Passphrase field. Click Upload. This will place you into the WebApplication blueprint you created and saved in previous exercises.
+
+6. On the blueprint canvas, click WebServer in the WebServerAHV service and then the VM tab in the right configuration panel, scroll down to NETWORK ADAPTERS (NICS) and click + to add a NIC:
+
+* Under NIC 1 click the dropdown and select default-net.
+* Select Dynamic next to Private IP.
+* Click Save.
+
+7. Select + next to Service in the Application Overview window on the bottom left of the blueprint canvas.
+
+The right configuration pane will populate information for the new Service2 service. Select the VM tab and enter in the following information:
+
+```
+Service Name: HAProxy
+Name: HAProxyAHV
+Cloud: Nutanix
+Operating System: Linux
+```
+
+8. Click Clone from environment to populate the VM configuration from the Project. Use the information below to verify your settings.
+
+```
+VM Name: HAProxy-@@{calm_time}@@
+vCPUs: 2
+Cores per vCPU: 1
+Memory (GiB): 2
+Guest Customization: Check box selected
+Type: Cloud-init
+Script: CloudInit script is shown.
+Device Type: Disk
+Device Bus: SCSI
+Operation: Clone from Image Service
+Image: CentOS_8_Cloud
+Bootable: Select check box
+NETWORK ADAPTERS (NICS): NIC 1 has default-net selected.
+```
+
+10. Under NETWORK ADAPTERS (NICS), next to Private IP, click the radio button next to Dynamic.
+
+11. Under CONNECTION, ensure the check box next to Check log-in upon create is selected. For the Credentials menu, select superuser.
+
+12. Click Save at the top of the page. If any errors or warnings exist, hover your cursor over the red exclamation mark to see what remediation steps are required.
+
+13. On the left side, for the HAProxy service, click on the turn-down arrow to reveal the service actions.
+
+14. Choose the Restart service action. Note that the service on the blueprint canvas changes to display the Restart action, which is empty.
+
+15. On your blueprint canvas, select + Task to add a task in the HAProxy service Restart service action and fill out the following fields in the configuration panel:
+
+* Task Name: HAProxy_Restart
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the HAProxy_ServiceAction_Restart.txt file and click Open. This will upload the script to the Script box.
+
+16. On the left side, for the HAProxy service, choose the Start service action.
+
+On your blueprint canvas, select + Action to add a Start service action in the HAProxy service and fill out the following fields in the configuration panel:
+
+* Task Name: Leave blank; this will be automatically populated.
+* Service Actions: Choose the Restart action.
+
+Note: This reuses the existing Restart service action, because for the HAProxy Load Balancer, these service actions are effectively the same operation.
+
+18. On the left side, for the HAProxy service, choose the Stop service action.
+
+19. On your blueprint canvas, select + Task to add a Stop service action in the HAProxy service and fill out the following fields in the configuration panel:
+```
+Task Name: HAProxy_Stop
+Type: Execute
+Script Type: Shell
+Endpoint (Optional): Skip; leave blank
+Credential: superuser
+Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the HAProxy_ServiceAction_Stop.txt file and click Open. This will upload the script to the Script box.
+```
+
+20. Scroll to the top of the configuration panel on the right and select Package next to VM.
+
+21. Type HAProxy_Package under Package Name and click Configure Install.
+
+22. In the blueprint canvas, you will see Package Install appear within the HAProxyAHV service. Click the Click + Task and configure the following in the right-hand Configuration panel.
+
+If you previously saved Linux_OS_Update task to the library, provide just the Task Name and Type as specified below, then click the Browse Library button to source the Linux_OS_Update task and save a few steps. If not found, provide all of the task configuration:
+
+* Task Name: Linux_OS_Update
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the Linux_OS_Update.txt file and click Open. This will upload the script to the Script box.
+
+23. Select + Task to add a second task and configure the following in the right-hand configuration panel:
+
+* Task Name: HAProxy_Install
+* Type: Execute
+* Script Type: Shell
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the HAProxy_Install.txt file and click Open. This will upload the script to the Script box.
+
+24. Select HAProxy within the HAProxyAHV service in the blueprint canvas and select the Package tab in the Configuration Panel.
+
+25. Click Configure uninstall.
+
+26. Select + Task and fill out the following fields in the configuration panel:
+
+* Task Name: Uninstall_HAProxy
+* Type: Execute
+* Script Type: Shell
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the HAProxy_Uninstall.txt file and click Open. This will upload the script to the Script box.
+
+27. Select Save.
+
+28. Download the blueprint. Check the box for Downloading credentials and type the passphrase nutanix/4u.
+
+29. Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Only keep the latest copy. Your WebApplication blueprint is now saved up to this point for this exercise.
+
+Note: You can also download the file to your personal computer by right-clicking the file and choosing Download from Frame. This will save the file to your local systems default downloads folder.
