@@ -562,3 +562,218 @@ An action is a set of operations that you can run on your application that are c
 4. Enter the task details.
 
 Once you have performed all these tasks, you can now see the blueprint in the Blueprints page.
+
+## 26. Exercise - Create a Multi-VM Blueprint
+
+In this series of exercises, you will pull all of the concepts you’ve learned together to build a load-balanced multi-VM web application using the LAMP stack. This is commonly referred to as a “two-tier” web application. You will use a current CentOS distribution for the Linux OS and host the web application on the private cloud with Nutanix AHV as the VM hypervisor.
+
+We’ll walk through these steps together.
+
+In the first exercise, you’ll create a new multi-VM blueprint:
+
+Add your SSH key credentials
+Add a WebServer VM and configure CentOS with cloud-init and shell tasks
+Install and configure an Apache web server
+Configure a one page PHP web application
+In the second exercise, you’ll add a load balancer service:
+
+Add an HAProxy VM and configure CentOS with cloud-init and shell tasks
+Install and configure HAProxy load balancer to serve requests to the WebServer
+And in the third exercise, you’ll add scalability to the WebServer to increase application performance, making it a web-tier array!
+
+(In the next lesson, you will address orchestration between the Web Server and Load Balancer service dependencies.)
+
+Creating a Multi VM Blueprint
+From the Prism Central tab on your browser, select the Entities menu > Services and click Calm.
+
+Select the Blueprints icon.
+
+Click + Create Blueprint and select Multi VM/Pod Blueprint.
+
+Type WebApplication in the Name field and select your HybridCloudEngineer project.
+
+In the Description field, type: 2-Tier Web Application.
+
+Select Proceed. You will now be presented with the Calm Blueprint canvas.
+
+Select Credentials above the canvas work area.
+
+Click + and use the information below to complete the dialog box:
+
+Credential Name: superuser
+Username: centos
+Secret Type: SSH Private Key
+SSH Private Key: In the upper right corner of the key field, click the box with the arrow, navigate to the C:\cygwin64\workspace.ssh\id_rsa private key and select Open.
+Click Save at the upper right and click Back. Note that the blueprint shows a red exclamation mark in the top of the blueprint canvas, this is expected at this early stage of building a new blueprint!
+
+Optionally, on the left of the blueprint canvas, click the small, half white square icon to expand the Application Overview palette to full height.
+
+In the configuration panel on the left, which displays Application Profile Name, change the name from Default to Nutanix.
+
+Immediately below the Application Profile Name, click + next to Variables.
+
+For this variable, click the running man icon to toggle the color from grey to blue. This indicates a runtime variable that is changeable upon blueprint launch.
+
+Add the following variable fields, please note that uppercase value of USER_INITIALS is important and that you should change the value of xyz to your initials or any name you prefer.
+
+Name: USER_INITIALS
+Data Type: String
+Value: xyz
+Secret: Do not change; keep unchecked.
+Runtime: Click to toggle from grey to blue (already set in the previous step)
+Click Save at the top of the blueprint canvas and then click Configuration. Note that the blueprint still shows a red exclamation mark - this is expected!
+
+Click + next to Downloadable Image Configuration (0) to add a URL for a network accessible image.
+
+Use the values below to complete the form. You can open C:\Scripts\CentOS8_URL.txt in a text editor, then copy and paste the contents for Source URL, below.
+
+Package Name: CentOS_8_Cloud
+Description Image: CentOS 8 Cloud Image
+Image Name: CentOS_8_Cloud
+Image Type: Disk Image
+Architecture: X86_64
+Source URI: [https://cloud.centos.org/centos/8/x86_64/images/CentOS-8-GenericCloud-8.2.2004-20200611.2.x86_64.qcow2]
+
+Product Name: CentOS
+
+Product Version: 8
+Click Save at the upper right and then click Back. Note that the blueprint still shows a red exclamation mark - this is expected!
+
+Click the Blueprints icon in the left column. Check the box next to your blueprint and from the Action menu, select Download to save your blueprint to your workstation. Check the box for Downloading credentials and type the passphrase nutanix/4u.
+
+Click Continue and save the file. Open File Manager from the desktop task bar and go to the Downloads folder. Copy the saved blueprint file into your Workspace folder on the desktop. Your WebApplication blueprint is now saved up to this point for this exercise. You can also, right-click the blueprint in the folder and click Download with Frame and save to your local computer.
+
+Now that the general settings in the blueprint have been configured and saved, add a new service to the blueprint to support web server configurations. From the Blueprint page, click your WebApplication blueprint.
+
+Select + next to Service in the Application Overview window at the bottom left.
+
+A new service will be created in the blueprint canvas and at the right a service configuration pane will populate information for the new Service1 service. Configure the following fields:
+
+Service Name: Change Service1 to WebServer
+Name: Change VM1 to WebServerAHV
+Cloud: Nutanix
+Operating System: Linux
+Immediately below these settings is the Clone from environment option. This option will populate the VM configuration based on the VM settings in the Calm Project selected for this blueprint. Click Clone from environment and use the following to verify the settings.
+
+VM Name: WebServer-@@{calm_time}@@
+vCPUs: 1
+Cores per vCPU: 1
+Memory (GiB): 2
+Guest Customization: Check box selected
+Type: Cloud-init
+Script: Cloud-init configuration. If empty, select the Upload icon in the upper right hand corner of the cloud-init text box and browse to: C:\scripts\cloud-init.txt.
+Device Type: Disk
+Device Bus: SCSI
+Operation: Clone from Image Service
+Image: CentOS_8_Cloud
+Bootable: Check box selected
+NETWORK ADAPTERS (NICS): NIC 1 shows default-net.
+Under NETWORK ADAPTERS (NICS), next to Private IP, click the radio button next to Dynamic.
+
+Under CONNECTION, ensure the check box next to Check log-in upon create is selected. For the Credentials menu, select superuser.
+
+Click Save at the top of the page: the red exclamation mark should disappear. If the exclamation mark remains, click on the exclamation mark to see what remediation steps are required. Make corrections and save your blueprint, repeat until the exclamation mark disappears.
+
+Select Download to save your blueprint to your workstation. Check the box for Downloading credentials and type the passphrase nutanix/4u.
+
+Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Your WebApplication blueprint is now saved up to this point for this exercise.
+
+On the left side, for the WebServer service, click on the turn-down arrow to reveal the service actions. Note that you can toggle the turn-down arrow to reveal or hide service actions.
+
+Choose the Restart service action. Note that the service on the blueprint canvas changes to display the Restart action, which is empty.
+
+On your blueprint canvas, select + Task to add a task in the WebServer service Restart service action and fill out the following fields in the configuration panel:
+
+* Task Name: WebServer_Restart
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the WebServer_ServiceAction_Restart.txt file and click Open. This will upload the script to the Script box.
+* On the left side, for the WebServer service, choose the Start service action. Note that the service on the blueprint canvas changes to display the Start action, which is empty.
+
+On your blueprint canvas, select + Action to add a Start service action in the WebServer service and fill out the following fields in the configuration panel:
+
+Task Name: Leave blank; this will be automatically populated.
+Service Actions: Choose the Restart action.
+Note: This reuses the existing Restart service action, because for the Apache web server, these service actions are effectively the same operation.
+
+On the left side, for the WebServer service, choose the Stop service action. Note that the service on the blueprint canvas changes to display the Stop action, which is empty.
+
+On your blueprint canvas, select + Task to add a Stop service action in the WebServer service and fill out the following fields in the configuration panel:
+
+* Task Name: WebServer_Stop
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the WebServer_ServiceAction_Stop.txt file and click Open. This will upload the script to the Script box.
+* On the blueprint canvas, click on the “WebServer” service white box to display the VM Service Configuration panel on the right and select the Package tab next to VM.
+
+Type WebServer_Package under Package Name.
+
+Click Configure Install.
+
+In the blueprint canvas, you will see Package Install appear within the WebServer service you have created.
+
+Click + Task and configure the following in the right-hand Configuration panel.
+
+If you previously saved this task to the library, provide just the Task Name and Type as specified below, then click the Browse Library button to source the Linux_OS_Update task and save a few steps. If not found, provide all of the task configuration:
+
+* Task Name: Linux_OS_Update
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the Linux_OS_Update.txt file and click Open. This will upload the script to the Script box.
+* Below the Script field, click Publish to Library.
+
+In the Publish Task dialog box, note the saved task name and verify your install task configuration and click Publish at the lower right. This saves this task so it can be used in other blueprints or other services in the same blueprint.
+
+Verify the entry in the task library. Click Browse Library at the top of the configuration panel. Select your saved task and review the settings at the right.
+
+Click Cancel.
+
+Click + Task to add a second task and configure the following in the right-hand Configuration panel:
+
+Task Name: Install_WebServer
+Type: Execute
+Script Type: Shell
+Endpoint (Optional): Skip; leave blank
+Credential: superuser
+Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the WebServer_Install.txt file and click Open. This will upload the script to the Script box.
+Click + Task to add a third task and configure the following in the right-hand Configuration panel:
+
+* Task Name: 2Tier_Webapp
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the WebServer_2Tier_Webapp.txt file and click Open. This will upload the script to the Script box.
+
+Note: For this lesson, we are using a two tier web application. In the next lesson, we will update the web application to use the database, so please DO NOT USE the WebServer_3Tier_Webapp.txt by accident!
+
+Click WebServer in the WebServerAHV service icon in the blueprint canvas and select the Package tab in the Configuration Panel.
+
+Click Configure uninstall.
+
+On your blueprint canvas, select + Task to add another task in the WebServer service and fill out the following fields in the configuration panel:
+
+* Task Name: Uninstall_WebServer
+* Type: Execute
+* Script Type: Shell
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the WebServer_Uninstall.txt file and click Open. This will upload the script to the Script box.
+Click WebServer in the WebServerAHV service icon in the blueprint canvas and select the Service tab in the Configuration Panel.
+
+Change the Number of Replicas to reflect the following values:
+
+* Default: 2
+* Min: 2
+* Max: 4
+
+Click Save.
+
+Select Download to save your blueprint to your Frame workstation. Check the box for Downloading credentials and type the passphrase nutanix/4u.
+
+Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Save only the most recent copy!
