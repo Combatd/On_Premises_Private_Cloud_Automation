@@ -788,6 +788,8 @@ Click Continue and save the file. Go to the Downloads folder and copy the file t
 ### Exercise: HAProxy Configuration
 Now let’s walk through the steps to configure a load balancer to depend on a web server service in a two-tier web application.
 
+[YouTube Video](https://youtu.be/Z2Bz3xx72lU)
+
 1. Select the Entities menu > Services and click Calm.
 
 2. Select the Blueprints icon in the left column.
