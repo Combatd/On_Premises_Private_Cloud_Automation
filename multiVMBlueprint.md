@@ -917,3 +917,111 @@ If you previously saved Linux_OS_Update task to the library, provide just the Ta
 29. Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Only keep the latest copy. Your WebApplication blueprint is now saved up to this point for this exercise.
 
 Note: You can also download the file to your personal computer by right-clicking the file and choosing Download from Frame. This will save the file to your local systems default downloads folder.
+
+## 30. Exercise: Adding Web Server Scaling
+Finally we’ll walk through web server replicas and scale-in and scale-out operations.
+
+1. Select the Entities menu > Services and click Calm.
+
+2. Select the Blueprints icon in the left column.
+
+3. If WebApplication is present, click on the blueprint and skip to step 9. If the blueprint is not present, this means you received a new cluster deployment and will need to upload your saved blueprint. Continue with the following steps.
+
+4. Click Upload Blueprint and browse to the Workspace folder on your desktop and select your saved WebApplication blueprint JSON file. Click Open.
+
+5. In the Upload Blueprint dialog box, select HybridCloudEngineer in the Project pull-down menu and type nutanix/4u in the Passphrase field. Click Upload. This will place you into the WebApplication blueprint you created and saved in previous exercises.
+
+6. On the blueprint canvas, click WebServer in the WebServerAHV service and then the VM tab in the right configuration panel, scroll down to NETWORK ADAPTERS (NICS) and click + to add a NIC:
+
+* Under NIC 1 click the dropdown and select default-net.
+* Select Dynamic next to Private IP.
+* Click Save.
+
+7. On the blueprint canvas, click HAProxy in the HAProxyAHV service and then the VM tab in the right configuration panel, scroll down to NETWORK ADAPTERS (NICS) and click + to add a NIC:
+
+* Under NIC 1 click the dropdown and select default-net.
+* Select Dynamic next to Private IP.
+
+8. Click Save.
+
+9. Add scaling to the WebServer service. At the lower left of the blueprint canvas, click the small half shaded box immediately above the + next to Services. This will expand the Application Profiles box.
+
+10. Under Application Profiles, click the + next to Actions, under Nutanix. You should see three things happen, a new Action# will be added to the Actions list, Action boxes are added to the bottom of all services on the blueprint canvas, and the Action configuration panel will be presented at the right.
+
+11. In the configuration panel, change the Action Name to WebScaleOut. Notice the Action boxes below the services get a name change to WebScaleout.
+
+12. Click + Task in the lower WebScaleOut box for the WebServer AHV service. Do not click on the upper box of the WebServer service, which has both + Task and + Action.
+
+13. In the right configuration panel, change Task1 to ScaleOut in the Task Name field.
+
+14. In the Scaling Type menu, select Scale Out. In the Scaling Count field, type 1.
+
+15. Click Save at the top of the page.
+
+16. The HAProxy service configuration needs to be updated when scaling the web servers. Under Applications Profiles, click WebScaleOut. On the blueprint canvas, in the HAProxy box, click the upper + Task next to +Action.
+
+17. In the new configuration panel at the right, fill out the following fields:
+
+* Task Name: HAProxy_Update
+* Type: Execute
+* Script Type: Shell
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the HAProxy_Update.txt file and click Open. This will upload the script to the Script box. Click Save.
+
+18. In the HAProxy service box, click + Action. In the new configuration panel at the right, click the Service Actions menu and select Restart. The Task Name should change to Restart. This restart action is added to the HAProxy service and is automatically linked to the HAProxy_Update task.
+
+19. Now create a task dependency between the WebScaleOut, ScaleOut task and the HAProxy_Update task. Click the ScaleOut task in the bottom box, under the WebServer service and immediately to the right, click the curved arrow next to the trash can. Now click the HAProxy_Update task. A dependency link will be created. Click Save.
+
+20. Under Application Profiles, click the + next to Actions once again. A new Action# will be added to the Actions list, new Action boxes are added to the bottom of all services on the blueprint canvas and a new Action configuration panel will be presented at the right.
+
+21. In the configuration panel, change the Action Name to WebScaleIn. Notice the Action boxes below the services get a name change to WebScaleIn.
+
+22. Click +Task in the lower WebScaleIn box for the WebServer AHV service.
+
+23. In the right configuration panel, change Task1 to ScaleIn in the Task Name field.
+
+24. In the Scaling Type menu, select Scale In. In the Scaling Count field, type 1.
+
+25. Click Save at the top of the page.
+
+26. The HAProxy service configuration needs to be updated when scaling the web servers. Under Applications Profiles, click WebScaleIn. On the blueprint canvas, in the HAProxy box, click the upper + Task next to +Action.
+
+27. In the new configuration panel at the right, fill out the following fields:
+
+* Task Name: HAProxy_Update
+* Type: Execute
+* Script Type: Shell
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the HAProxy_Update.txt file and click Open. This will upload the script to the Script box. Click Save.
+
+28. In the HAProxy box, click + Action. In the new configuration panel at the right, click the Service Actions menu and select Restart. The Task Name should change to Restart. This restart action is added to the HAProxy service and is automatically linked to the HAProxy_Update task.
+
+29. Now create a task dependency link between the HAProxy service Restart task and WebScaleIn, ScaleIn task. Click the Restart task in the bottom box, under the HAProxy service and immediately to the right, click the curved arrow next to the trash can. Now click the ScaleIn task on the WebServer service. A dependency link will be created. Click Save.
+
+30. Download the blueprint. Check the box for Downloading credentials and type the passphrase nutanix/4u.
+
+31. Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Only keep the latest copy. *Your WebApplication blueprint is now saved up to this point for this exercise.
+
+32. From your Workspace folder, download the WebApplication blueprint to you local, personal computer. Using your mouse, right-click the WebApplication blueprint and select Download with Frame.
+
+33. In the popup, select Save File and click OK.
+
+34. From your personal computer, go to the folder where the blueprint was downloaded and verify that the download of your WebApplication blueprint was successful. Create a Udacity-Class folder and copy the WebApplication blueprint to this folder. Also copy any other files downloaded to your local computer to the Udacity-Class folder.
+
+Note: Please ensure, when downloading blueprints to the Workspace folder or to your local system, that you either only keep the latest copy, or keep track of them by time-date, so that when you upload a blueprint, you are uploading the latest version.
+
+35. Select the Blueprints icon to get the main blueprints page.
+
+36. Check the box next to the WebApplication blueprint and select Clone from the Action menu.
+
+37. In the Clone Blueprint dialog box, type Production-2Tier-Application in the Blueprint Name field and click Clone.
+
+38. The cloning process will place you on the cloned blueprint page. Select the Blueprints icon to get the main blueprints page.
+
+39. Check the box next to the Production-2Tier-Application blueprint and select Download from the Action menu.
+
+40. Check the box for Downloading credentials and type the passphrase nutanix/4u.
+
+41. Click Continue and save the file. Go to the Windows Downloads folder and copy the Production-2tier-Application file to your Workspace folder.
+
+42. You now have two copies of the current configuration of the WebApplication blueprint that may be used for other purposes.
