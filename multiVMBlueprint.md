@@ -569,6 +569,10 @@ In this series of exercises, you will pull all of the concepts you’ve learned 
 
 We’ll walk through these steps together.
 
+[Video 1](https://youtu.be/NquHQtPiTXI
+[Video 2](https://youtu.be/ilFzJl_I030)
+[Video 3](https://youtu.be/kLx5Rq-WLMU)
+
 In the first exercise, you’ll create a new multi-VM blueprint:
 
 Add your SSH key credentials
@@ -599,12 +603,13 @@ Select Proceed. You will now be presented with the Calm Blueprint canvas.
 Select Credentials above the canvas work area.
 
 Click + and use the information below to complete the dialog box:
-
+```
 Credential Name: superuser
 Username: centos
 Secret Type: SSH Private Key
 SSH Private Key: In the upper right corner of the key field, click the box with the arrow, navigate to the C:\cygwin64\workspace.ssh\id_rsa private key and select Open.
 Click Save at the upper right and click Back. Note that the blueprint shows a red exclamation mark in the top of the blueprint canvas, this is expected at this early stage of building a new blueprint!
+```
 
 Optionally, on the left of the blueprint canvas, click the small, half white square icon to expand the Application Overview palette to full height.
 
@@ -655,19 +660,20 @@ Cloud: Nutanix
 Operating System: Linux
 Immediately below these settings is the Clone from environment option. This option will populate the VM configuration based on the VM settings in the Calm Project selected for this blueprint. Click Clone from environment and use the following to verify the settings.
 
-VM Name: WebServer-@@{calm_time}@@
-vCPUs: 1
-Cores per vCPU: 1
-Memory (GiB): 2
-Guest Customization: Check box selected
-Type: Cloud-init
-Script: Cloud-init configuration. If empty, select the Upload icon in the upper right hand corner of the cloud-init text box and browse to: C:\scripts\cloud-init.txt.
-Device Type: Disk
-Device Bus: SCSI
-Operation: Clone from Image Service
-Image: CentOS_8_Cloud
-Bootable: Check box selected
-NETWORK ADAPTERS (NICS): NIC 1 shows default-net.
+* VM Name: WebServer-@@{calm_time}@@
+* vCPUs: 1
+* Cores per vCPU: 1
+* Memory (GiB): 2
+* Guest Customization: Check box selected
+* Type: Cloud-init
+* Script: Cloud-init configuration. If empty, select the Upload icon in the upper right hand corner of the cloud-init text box and browse to: C:\scripts\cloud-init.txt.
+* Device Type: Disk
+* Device Bus: SCSI
+* Operation: Clone from Image Service
+* Image: CentOS_8_Cloud
+* Bootable: Check box selected
+* NETWORK ADAPTERS (NICS): NIC 1 shows default-net.
+
 Under NETWORK ADAPTERS (NICS), next to Private IP, click the radio button next to Dynamic.
 
 Under CONNECTION, ensure the check box next to Check log-in upon create is selected. For the Credentials menu, select superuser.
