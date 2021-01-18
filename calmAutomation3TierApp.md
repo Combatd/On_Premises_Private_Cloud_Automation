@@ -33,3 +33,29 @@ To achieve a three tier web application, we will be discussing:
 * Databases
 * Calm Orchestration for order of operations across dependent services
 * Advanced Calm Actions, in a little more detail than we have in previous lessons
+
+## 2. Big Picture
+[YouTube Video](https://youtu.be/e5hiljP9fjw)
+
+Before we move on with this lesson, which is the culmination of everything you have learned so far, let’s take a moment to circle back to the beginning and see how everything ties together.
+
+As you may remember, we spoke about how businesses constantly seek to improve overall IT agility and responsiveness to enable more rapid innovation. However, application development and delivery is growing in complexity, making it challenging for teams to keep up with increasing expectations to move faster.
+
+As a result, when thinking about the applications that drive and support a business, there are a number of important factors to consider about the applications themselves, as well as their deployment and maintenance:
+
+* Today’s mission critical and complex business processes need a plethora of applications to work in harmony
+* The growing number of interdependent components, and reliance on manual processes, lead to frequent unplanned downtime due to errors
+* Knowledge silos force everyone to work in a partial state of isolation, leading to a lack of productivity in the business
+* Hybrid clouds introduce inoperable and disparate platforms, adding significant management challenges
+
+Hyperconverged solutions provide a much simpler infrastructure that scales linearly and radically reduces the complexity inherent to traditional data center architectures. But to truly transform how IT teams can support the business, a new approach that automates all aspects of how applications are created, consumed and governed is needed.
+
+Melding advanced application-level orchestration with a full cloud-driven infrastructure stack can achieve repeatable, simple and automated management of applications – across a variety of environments including private and public clouds.
+
+And as we’ve seen in this course, that advanced application-level orchestration is provided by Nutanix Calm.
+
+Calm provides a single pane for application automation and lifecycle management for Nutanix, VMWare, and public clouds, as part of the Nutanix Enterprise Cloud Platform.
+
+Calm orchestrates the provisioning, scaling and management of applications across multiple environments to make the entire IT infrastructure more agile and application centric.
+
+And this lesson illustrates how the various components of Calm come together to address the needs of enterprise applications. Using a three-tier web application as our example, you will explore how Calm delivers app-centric automation and lifecycle management, policy-based governance, self-service provisioning to any enterprise in need of these capabilities.
