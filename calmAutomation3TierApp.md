@@ -64,3 +64,30 @@ And this lesson illustrates how the various components of Calm come together to 
 Common Challenges when working with enterprises applications
 * Mission critical and complex business processes need a plethora of applications to work in harmony
 * Knowledge silos lead to a lack of productivity in the business
+
+## 5. When and When Not to Use Calm Automation
+After everything we’ve seen, a good question to be asking yourself is ‘When am I likely to use Calm?’. Helpfully, the answer is remarkably straightforward.
+
+Much of Calm’s power lies in its universality: whenever you need to work with an application, whether you’re deploying it in a single cloud or multiple clouds, if there’s a need for automation and orchestration Calm will be useful to you.
+
+When you’re considering whether or not to use Calm for an application deployment, there are three key factors that you need to consider.
+
+### How the application will be deployed
+* Will it be on-prem?
+* Will it be on the cloud?
+* Will it be both on-prem and on the cloud?
+* Will part of the application be on-prem and part of it on the cloud?
+
+### The users of the application
+* Is it beneficial for users to be able to deploy the application without intervention from IT?
+* Will this application be deployed frequently?
+* Is the application likely to be deployed multiple times?
+
+### The application itself
+* Is there value in automating deployment?
+* Is there value in automating management?
+* Is there value in making application deployment consistent and repeatable?
+
+If the answer to a good number of these questions is yes, then you have a good use case for Calm on your hands. And, as we’ve learned so far — and will see in this lesson as well — irrespective of the nature and the complexity of the application itself, Calm brings simplicity and ease of use to both your experience, as IT, and to your users’ experience as well.
+
+
