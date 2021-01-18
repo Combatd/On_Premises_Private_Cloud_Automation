@@ -1046,3 +1046,24 @@ Note: Please ensure, when downloading blueprints to the Workspace folder or to y
 * Task - An individual stage of operational execution in an action.
 
 * Variable - A blueprint property: statically set by the developer role with a default value, used as a macro in task, and specified with a runtime property to delegate setting by an operator role during blueprint launch.
+
+## 33. Lesson Conclusion
+[YouTube Video](https://youtu.be/czWYmtwRYnY)
+
+This concludes our lesson, Creating and Publishing a Multi-VM Calm Blueprint. Before we move to the next lesson, let's do a quick recap of what was covered.
+
+Some of the common blueprint lifecycle management tasks are cloning, deleting, and uploading a blueprint. You can clone an application blueprint from a pre-seeded application blueprint. You can download the blueprint with the credentials and secrets. You can upload a configured blueprint to the blueprints tab.
+
+The environment is mandatory to publish the application into the marketplace. You can define the environment either when creating a project or when creating a blueprint. If you have configured the environment when creating the project, you can clone that configuration for the VM while configuring a blueprint.
+
+Macros enable you to access the value of variables and properties set on entities. Calm macros are part of a templating language for Calm scripts.
+
+Application profiles often include choices about where an application should run (AHV or AWS), but they can also be about sizing (small or large), or a combination of the two (small AHV or large AHV or small AWS). Every blueprint has a default application profile, it can be thought of a base layer of the blueprint.
+
+Profile Actions are a set of operations that you can run on your application. Actions consist of one or more tasks. Tasks are executed sequentially on each service.
+
+Calm Library allows you to save user-defined tasks (scripts) and variables that can be used by other application blueprints.
+
+Finally, a Multi-VM blueprint is a framework that you can use to create an instance, provision, and launch applications requiring multiple VMs. Creating a multi-VM blueprint involves adding a service, configuring the VM, package and service for the provider, setting up the service dependencies, adding and configuring an application profile, and creating an action.
+
+This completes all the topics necessary to configure a blueprint. So far, we have covered all Calm constructs and walked you through the process to create a single and multi-VM Calm blueprint. In the next lesson, we will explore how Calm automates a 3 tier web application.
