@@ -91,3 +91,38 @@ When you’re considering whether or not to use Calm for an application deployme
 If the answer to a good number of these questions is yes, then you have a good use case for Calm on your hands. And, as we’ve learned so far — and will see in this lesson as well — irrespective of the nature and the complexity of the application itself, Calm brings simplicity and ease of use to both your experience, as IT, and to your users’ experience as well.
 
 
+## 6. MySQL Database Server Administration
+[YouTube Video](https://youtu.be/cWy8Zlinvpw)
+
+The MySQL database upholds the standard install and maintenance command tools:
+
+* ```sudo yum install -y mysqld```
+* ```sudo systemctl {enable,start,status,stop,restart} mysqld```
+
+The {1,2,3} list is shorthand for all of the standard operations you can choose to perform on most services with systemctl.
+
+For Firewall and security group access, mysqld listens on TCP port 3306.
+
+The configuration file is /etc/my.cnf
+
+For troubleshooting database logs:
+
+* ```sudo journalctl -f -u mysqld```
+* ```sudo tail /var/log/mysqld.log```
+
+The configuration of data, users, and operations inside the database requires the database to be started, then administered via the mysql client. Databases contain their own users, credentials, and role permissions. Everything inside the database is independent of operating system user credentials, so the database user root is not the same as Linux user root. mysqldump is included in the MySQL package for creating a database backup.
+
+Accessing MySQL from the command line requires database user credentials, e.g.:
+
+* ```mysql --user=root --password=example```
+* ```mysqldump --all-databases --user=root --password=example```
+
+After authenticating with database credentials, commands can be issued. The standard for database commands is SQL: Structured Query Language. While MySQL can deviate from the standard and vary between different MySQL major releases, the majority of SQL is compatible across most different database and versions.
+
+You will see the automation scripts leverage mysql command to authenticate as database user root and then perform SQL operations. Those operations will include creating users, granting roles to users, and creating database structures.
+
+Database structures are organized as: databases and tables, which are addressed by database_name.table_name. You can think of a database as a spreadsheet and a database table as a tab or layer in that spreadsheet. So a database is a collection of tables.
+
+Any application not on the database VM can authenticate with a database user over the network and issue SQL commands to interact with a specific database and database table. The web application will need these pieces of information: a database server address, database user and password, and a database name and table. The PHP language database MySQL driver will use the default MySQL TCP port, so it is omitted unless there is a need for custom configuration.
+
+A database structure, called a database schema, defines the types of data it will store. Building on the spreadsheet example, think of a database table as the different columns with data formats in a spreadsheet. Finally, the data is populated into the table via SQL statements such as INSERT, UPDATE, and DELETE. This can be thought of as editing the data cells in spreadsheet rows.
