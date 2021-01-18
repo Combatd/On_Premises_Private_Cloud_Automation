@@ -59,3 +59,8 @@ Calm provides a single pane for application automation and lifecycle management 
 Calm orchestrates the provisioning, scaling and management of applications across multiple environments to make the entire IT infrastructure more agile and application centric.
 
 And this lesson illustrates how the various components of Calm come together to address the needs of enterprise applications. Using a three-tier web application as our example, you will explore how Calm delivers app-centric automation and lifecycle management, policy-based governance, self-service provisioning to any enterprise in need of these capabilities.
+
+## 3. Quiz: Big Picture
+Common Challenges when working with enterprises applications
+* Mission critical and complex business processes need a plethora of applications to work in harmony
+* Knowledge silos lead to a lack of productivity in the business
