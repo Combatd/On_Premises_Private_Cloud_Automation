@@ -126,3 +126,176 @@ Database structures are organized as: databases and tables, which are addressed 
 Any application not on the database VM can authenticate with a database user over the network and issue SQL commands to interact with a specific database and database table. The web application will need these pieces of information: a database server address, database user and password, and a database name and table. The PHP language database MySQL driver will use the default MySQL TCP port, so it is omitted unless there is a need for custom configuration.
 
 A database structure, called a database schema, defines the types of data it will store. Building on the spreadsheet example, think of a database table as the different columns with data formats in a spreadsheet. Finally, the data is populated into the table via SQL statements such as INSERT, UPDATE, and DELETE. This can be thought of as editing the data cells in spreadsheet rows.
+
+## 7. Exercise - Add a Database Service
+In this exercise, you will add a Database service to your WebApplication Multi-VM blueprint, becoming a “three-tier” web application by performing these steps:
+
+1. Add application profile variables for database configuration to be used by installation shell tasks and the WebServer application.
+
+2. Add a MySQL VM and configure CentOS with cloud-init and shell tasks.
+
+3. Install MySQL and then configure a database, change the database root user password, and set up a web application table, user, and permissions.
+
+Let’s walk through the steps together. Again, a video walkthrough is offered on the next page.
+
+### Configure the Blueprint
+1. Select the Entities menu, then Services and click Calm.
+
+2. Select the Blueprints icon in the left column.
+
+3. If WebApplication is present, click on the blueprint and skip to step 8. If the blueprint is not present, this means you received a new cluster deployment and will need to upload your saved blueprint.
+
+4. Click Upload Blueprint and browse to the Workspace folder on your desktop and select your saved WebApplication blueprint JSON file. Click Open.
+
+5. Select HybridCloudEngineer in the Project pull-down menu and type nutanix/4u in the Passphrase field. Click Upload. This will place you into the WebApplication blueprint you created and saved in the previous exercise.
+
+6. On the blueprint canvas, click WebServer in the WebServerAHV service and then the VM tab in the right configuration panel, scroll down to NETWORK ADAPTERS (NICS) and click + to add a NIC:
+
+* Under NIC 1 click the dropdown and select default-net.
+* Select Dynamic next to Private IP.
+* Click Save.
+
+7. On the blueprint canvas, click HAProxy in the HAProxyAHV service and then the VM tab in the right configuration panel, scroll down to NETWORK ADAPTERS (NICS) and click + to add a NIC:
+
+* Under NIC 1 click the drop-down and select default-net.
+* Select Dynamic next to Private IP.
+* Click Save.
+
+### Configure MySQL Database
+8. If needed, expand the left hand Application Overview palette to full canvas height by clicking on the top bar expand icon. Choose the Nutanix application profile, then on the left side configuration panel, add the following four variables, click + to add each instance:
+
+Note: if you make a mistake, sometimes it is easier to select the triple dot menu next to each variable, choose delete, and start over. You can reveal and hide the variable details by clicking the turn-down arrow as well as reorder the variables by clicking and dragging the handle to the left of the variable name.
+```
+Variable Name	Data Type	Value	Secret	Runtime
+MYSQL_APP_USER	String	webuser	Unchecked	Skip (grey icon)
+MYSQL_PASSWORD	String	nutanix/4u	Yes, click the check box	Click (blue icon)
+DATABASE_NAME	String	webapp	Unchecked	Skip (grey icon)
+DATABASE_TABLE	String	visitors	Unchecked	Skip (grey icon)
+```
+
+9. Edit the MYSQL_PASSWORD variable to add additional validation, click the MYSQL_PASSWORD variable turn down arrow to reveal the properties. Click “Show Additional Options” and add:
+
+* Description: “MySQL low password security requirements are 8 or more characters with at least 1 uppercase character.”
+* Mark this variable mandatory: Checkbox
+
+10. Select + next to Service in the Application Overview window on the bottom left. A new service will be added to the blueprint canvas. You can drag and drop the new service to a clear area of the canvas.
+
+11. The right configuration pane will populate information for the new Service3 service. Select the VM tab and enter in the following information:
+
+* Service Name: MySQL
+* Name: MySQLAHV
+* Cloud: Nutanix
+* Operating System: Linux
+
+12. Click Clone from environment to populate the VM configuration from the project. Verify the settings using the following table:
+
+* VM Name: MYSQL-@@{calm_time}@@
+* vCPUs: 1
+* Cores per vCPU: 1
+* Memory (GiB): 2
+* Guest Customization: Check box selected
+* Type: Cloud-init
+* Script: CloudInit script shown
+* Device Type: Disk
+* Device Bus: SCSI
+* Operation: Clone from Image Service
+* Image: CentOS_8_Cloud
+* Bootable: Select check box
+* NETWORK ADAPTERS (NICS): NIC 1 has default-net selected.
+
+13. Under NETWORK ADAPTERS (NICS), next to Private IP, click the radio button next to Dynamic.
+
+14. Under CONNECTION, ensure the check box next to Check log-in upon create is selected. For the Credentials menu, select superuser.
+
+15. Click Save at the top of the page. If any errors or warnings exist, hover your cursor over the red exclamation mark to see what remediation steps are required. Warnings about variables will be resolved in a later step.
+
+16. Select Download to save your blueprint to your workstation. Check the box for Downloading credentials and type the passphrase nutanix/4u.
+
+17. Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Only keep the latest copy. Your WebApplication blueprint is now saved up to this point for this exercise.
+
+18. On the left side, for the MySQL service, click on the turn-down arrow to reveal the service actions.
+
+19. Choose the Restart service action. Note that the service on the blueprint canvas changes to display the Restart action, which is empty.
+
+20. On your blueprint canvas, select + Task to add a task in the MySQL service Restart service action and fill out the following fields in the configuration panel:
+
+* Task Name: MySQL_Restart
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the MySQL_ServiceAction_Restart.txt file and click Open. This will upload the script to the Script box.
+
+21. On the left side, for the MySQL service, choose the Start service action.
+
+22. On your blueprint canvas, select + Action to add a Start service action in the MySQL service and fill out the following fields in the configuration panel:
+
+* Task Name: Leave blank; this will be automatically populated.
+* Service Actions: Choose the Restart action.
+
+Note: This reuses the existing Restart service action, because for the MySQL database, these service actions are effectively the same operation.
+
+23. On the left side, for the MySQL service, choose the Stop service action.
+
+24. On your blueprint canvas, select + Task to add a Stop service action in the WebServer service and fill out the following fields in the configuration panel:
+
+* Task Name: MySQL_Stop
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the MySQL_ServiceAction_Stop.txt file and click Open. This will upload the script to the Script box.
+
+25. On the blueprint canvas, click on the “MySQL” service white box to display the VM Service Configuration panel on the right and select the Package tab next to VM.
+
+26. Type MySQL_Package under Package Name and click Configure Install.
+
+27. In the blueprint canvas, you will see Package Install appear within the MySQL service you have created.
+
+Click + Task and configure the following in the right-hand Configuration panel.
+
+If you previously saved this task to the library, provide just the Task Name and Type as specified below, then click the Browse Library button to source the Linux_OS_Update task and save a few steps. If not found, provide all of the task configuration:
+
+* Task Name: Linux_OS_Update
+* Type: Execute
+* Script Type: Shell -
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. 
+
+Navigate to C:\Scripts. Select the Linux_OS_Update.txt file and click Open. This will upload the script to the Script box.
+
+28. Select + Task to add a second task and configure the following in the right-hand Configuration panel:
+
+* Task Name: MySQL_Install
+* Type: Execute
+* Script Type: Shell
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the MySQL_Install.txt file and click Open. This will upload the script to the Script box.
+
+29. Scroll to the top of the Configuration panel on the right and select Package next to VM.
+
+30. Select MySQL in the MySQLAHV service in the blueprint canvas and select the Package tab in the Configuration Panel.
+
+31. Click Configure uninstall.
+
+32. Select + Task in the MySQLAHV service and fill out the following fields in the Configuration Panel:
+
+* Task Name: MySQL_Uninstall
+* Type: Execute
+* Script Type: Shell
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the MySQL_Uninstall.txt file and click Open. This will upload the script to the Script box.
+
+33. On the blueprint canvas, click the WebServerAHV service, find the 2Tier_Webapp task, update the task to reflect the new name and upload the new WebServer_3Tier_Webapp.txt script.
+
+* Task Name: 3Tier_Webapp
+* Type: Execute
+* Script Type: Shell
+* Endpoint (Optional): Skip; leave blank
+* Credential: superuser
+* Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the WebServer_3Tier_Webapp.txt file and click Open. This will upload the script to the Script box.
+
+34. Select Save.
+
+35. Select Download to save your blueprint to your workstation. Check the box for Downloading credentials and type the passphrase nutanix/4u. Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Only keep the latest copy. Your WebApplication blueprint is now saved up to this point for this exercise. Also download to your local computer into the Udacity-Class folder.
