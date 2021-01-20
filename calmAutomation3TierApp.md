@@ -128,6 +128,8 @@ Any application not on the database VM can authenticate with a database user ove
 A database structure, called a database schema, defines the types of data it will store. Building on the spreadsheet example, think of a database table as the different columns with data formats in a spreadsheet. Finally, the data is populated into the table via SQL statements such as INSERT, UPDATE, and DELETE. This can be thought of as editing the data cells in spreadsheet rows.
 
 ## 7. Exercise - Add a Database Service
+[YouTube Video](https://youtu.be/jOLJ0MB56pU)
+
 In this exercise, you will add a Database service to your WebApplication Multi-VM blueprint, becoming a “three-tier” web application by performing these steps:
 
 1. Add application profile variables for database configuration to be used by installation shell tasks and the WebServer application.
@@ -287,7 +289,7 @@ Navigate to C:\Scripts. Select the Linux_OS_Update.txt file and click Open. This
 * Credential: superuser
 * Script: In the upper right corner of the Script box, hover your mouse over the icons and click Upload script. Navigate to C:\Scripts. Select the MySQL_Uninstall.txt file and click Open. This will upload the script to the Script box.
 
-33. On the blueprint canvas, click the WebServerAHV service, find the 2Tier_Webapp task, update the task to reflect the new name and upload the new WebServer_3Tier_Webapp.txt script.
+33. On the blueprint canvas, click the WebServerAHV service, find the 2Tier_Webapp task (Packages on Left Pane), update the task to reflect the new name and upload the new WebServer_3Tier_Webapp.txt script.
 
 * Task Name: 3Tier_Webapp
 * Type: Execute
