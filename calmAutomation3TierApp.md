@@ -324,3 +324,106 @@ When you save the blueprint, you will see orchestration dependency arcs created 
 As described earlier, without the use of macros, setting up dependencies is quite literally a matter of drag-and-drop. When you select a service, you will see the Create Dependency icon, as shown in the following figure.
 
 Simply click that Create Dependency icon and drag it to the dependent service in order to create your dependency. If done correctly, you will see white arcs/lines conn
+
+## 12. Exercise: Add Dependencies
+In this exercise, we’ll walk you through the steps to orchestrate service dependencies between the load balancer, which depends on the web tier, which in turn depends on the database, so that the entire three-tier web application works properly together!
+
+Your blueprint currently has an HAProxy load balancer, Apache WebServers with scale in and scale out actions configured and a MySQL database. To define the proper start and stop order of these services, we need to create service dependencies, which is also called orchestration.
+
+1. Select the Entities menu, then Services and click Calm.
+
+2. Select the Blueprints icon in the left column.
+
+3. If WebApplication is present, click the blueprint and skip to step 10. If the blueprint is not present, this means you received a new cluster deployment and will need to upload your saved blueprint. Continue with the following steps.
+
+4. Click Upload Blueprint and browse to the Workspace folder on your desktop and select your saved WebApplication JSON file. Click Open.
+
+5. In the Upload Blueprint dialog box, select HybridCloudEngineer in the Project pull-down menu and type nutanix/4u in the Passphrase field. Click Upload. This will place you into the WebApplication blueprint you created and saved in previous exercises.
+
+6. On the blueprint canvas, click WebServer in the WebServerAHV service and then the VM tab in the right configuration panel, scroll down to NETWORK ADAPTERS (NICS) and click + to add a NIC:
+
+* Under NIC 1 click the drop-down and select default-net.
+* Select Dynamic next to Private IP.
+* Click Save.
+
+7. On the blueprint canvas, click HAProxy in the HAProxyAHV service and then the VM tab in the right configuration panel, scroll down to NETWORK ADAPTERS (NICS) and click + to add a NIC:
+
+* Under NIC 1 click the drop-down and select default-net.
+* Select Dynamic next to Private IP.
+
+8. On the blueprint canvas, click MySQL in the MySQLAHV service and then the VM tab in the right configuration panel, scroll down to NETWORK ADAPTERS (NICS) and click + to add a NIC:
+
+* Under NIC 1 click the drop-down and select default-net.
+* Select Dynamic next to Private IP.
+* Click Save.
+Remediate any blueprint problems before continuing. Optionally, expand the Application Overview palette to the full height of the blueprint canvas.
+
+On the blueprint canvas, Drag and Drop the Services so they are in order from left to right on the blueprint canvas: MySQLAHV, WebServerAHV and HAProxyAHV, if needed.
+
+In the Application Profiles box, click Create under the Actions list under Nutanix.
+
+Review the orange Orchestration Edges that link the tasks together. This shows the interdependencies for creating a service. Note that there are definite orange arcs that connect between the three services, this is because Calm macros use service properties from the other services, such as the HAProxy Load Balancer configuration needs the WebServer addresses and the WebServer application configurations use the MySQL database address. These dependencies are automatically generated and updated by Calm when the blueprint is saved, they control the order of operations across the entire application.
+
+In the Actions list, select Stop.
+
+Review the Orchestration Edges that connect the interdependencies when a Stop action is issued. Note that there is no connection between the services, this means the Stop action will occur in parallel on all services simultaneously. That is not desirable, for this example we want the Database to shut down, then stop the web servers, then the Load Balancer can stop allowing new traffic.
+
+Select the HAProxy application in the HAProxyAHV service.
+
+Hover over the curved arrow on the left menu, you should see Create Dependency. Click Create Dependency.
+
+Drag the newly created arrow over to the WebServerAHV service and click the WebServer box. An arrow will connect the HAProxy service to the WebServer service.
+
+Select the WebServer application in the WebServerAHV service.
+
+Hover over the curved arrow on the left menu, you should see Create Dependency. Click Create Dependency.
+
+Drag the newly created arrow over to the MySQLAHV service and click the MySQL box. An arrow will connect the WebServer service to the MySQL service.
+
+Click Save.
+
+Review the orange Orchestration Edges and how they have now changed to reflect the dependencies you have just created. Instead of all services stopping at the same time, now the MySQL database will stop, then the WebServers, then the HAProxy load balancer.
+
+Download the blueprint to your desktop. Check the box for Downloading credentials and type the passphrase nutanix/4u.
+
+Click Continue and save the file. Go to the Downloads folder and copy the file to your Workspace folder. Only keep the latest copy. Also, download to your personal computer and save to the Udacity-Class folder.
+
+Test your blueprint to observe the service provisioning order and run WebServer scaling operations.
+
+Click Launch in the upper right of the Blueprint Editor.
+
+Type Production-3Tier-App.
+
+Review all Profile Configuration, Service Configuration, and Credentials for accuracy.
+
+Click Create.
+
+Select the Audit Tab to review the application PROVISIONING process.
+
+Once the application state changes from PROVISIONING to RUNNING, go to the Entities menu > Virtual Infrastructures and click VM.
+
+Review the number of VMs currently running. They should be associated to the HybridCloudEngineer project and the Status should be On. One VM is the database, one is the Proxy and two are web servers.
+
+Test the Web Scaling Action. Go back to Entities menu > Services > Calm > Applications. Select Production-3Tier-App and click Manage.
+
+Scroll down to the WebScaleOut row. Click the play button. A blueprint canvas will show to the right. Click Run at the top right, to start the web server scale out action.
+
+In the Run Action: WebScaleOut dialog box, click Run.
+
+Click Audit and follow the provisioning of another web server VM.
+
+Go to the Entities menu > Virtual Infrastructures and click VM. How many VMs are running in your project now? Did you get an extra web server VM?
+
+From the Prism Central browser tab, click Manage**.
+
+Scroll down to the WebScaleIn row. Click the play button. A blueprint canvas will show to the right. Click Run at the top right, to start the web server scale in action.
+
+In the Run Action: WebScaleIn dialog box, click Run.
+
+Click Audit tab and follow the removal of a web server VM.
+
+Click the Services tab, for the WebServer service, click the circle with the opposing arrows to expand the WebServer service. Click on each web server and review the details shown on the display at the right. Are you back to the original number of Web Server VMs?
+
+Click the Audit tab and review the history of Create, WebScaleOut, and WebScaleIn operations.
+
+Click the Delete button in the upper right corner to terminate this workload.
